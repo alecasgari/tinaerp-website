@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+{% if hero %}
+<section class="page-hero" aria-label="{{ title }}">
+  <div class="container">
+    <p class="eyebrow">{{ site.title }}</p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+<section class="section">
+  <div class="container{% if narrow %} narrow{% endif %} prose">
+    {{ content | safe }}
+  </div>
+</section>

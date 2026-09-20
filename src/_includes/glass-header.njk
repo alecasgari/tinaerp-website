@@ -1,0 +1,71 @@
+<div class="glass-top">
+  <header class="glass-pill-header" aria-label="ناوبری">
+    <a class="g-brand" href="{{ '/' | url }}">
+      <img src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="{{ site.title }}" width="110" height="28">
+    </a>
+
+    <div class="g-center">
+      <p class="g-slogan">
+        <span class="slogan-brand">تینا</span><span class="slogan-mark">،</span>
+        <span class="slogan-accent">راهکار شما!</span>
+      </p>
+      <nav class="g-nav" aria-label="منوی اصلی">
+        {% for item in site.nav %}
+        {% if item.href == '/contact/' or item.href == '/demo/' %}
+        <button type="button" class="g-nav-btn" data-open-contact>{{ item.label }}</button>
+        {% else %}
+        <a href="{{ item.href | url }}" {% if page.url == item.href %}aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endif %}
+        {% endfor %}
+      </nav>
+    </div>
+
+    <div class="g-tools">
+      <button type="button" class="g-theme-toggle" id="theme-toggle" role="switch" aria-checked="false" aria-label="تم روشن یا تیره" title="تم روشن/تیره">
+        <span class="g-theme-track" aria-hidden="true">
+          <svg class="g-theme-ico g-theme-sun" width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="g-theme-ico g-theme-moon" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A7.5 7.5 0 019.5 4 8 8 0 1020 14.5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="g-theme-knob" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="g-cta" data-open-contact>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+        دمو
+      </button>
+      <button type="button" class="g-icon-btn g-menu-btn" aria-expanded="false" aria-controls="glass-nav-modal" aria-label="منو">
+        <svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true">
+          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="currentColor"/>
+          <rect x="12" y="2" width="6" height="6" rx="1.5" fill="currentColor"/>
+          <rect x="2" y="12" width="6" height="6" rx="1.5" fill="currentColor"/>
+          <rect x="12" y="12" width="6" height="6" rx="1.5" fill="currentColor"/>
+        </svg>
+        <span class="g-menu-label">منو</span>
+      </button>
+    </div>
+  </header>
+</div>
+
+<div id="glass-nav-modal" class="g-modal" hidden>
+  <div class="g-modal-backdrop" data-g-close></div>
+  <div class="g-modal-panel" role="dialog" aria-modal="true" aria-label="منو">
+    <div class="g-modal-top">
+      <img src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="{{ site.title }}" width="100" height="24">
+      <button type="button" class="g-icon-btn" data-g-close aria-label="بستن">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <p class="g-modal-slogan">
+      <span class="slogan-brand">تینا</span><span class="slogan-mark">،</span>
+      <span class="slogan-accent">راهکار شما!</span>
+    </p>
+    <div class="g-modal-grid">
+      {% for item in site.nav %}
+      {% if item.href == '/contact/' or item.href == '/demo/' %}
+      <button type="button" class="g-modal-link" data-open-contact data-g-close>{{ item.label }}</button>
+      {% else %}
+      <a class="g-modal-link" href="{{ item.href | url }}" {% if page.url == item.href %}aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

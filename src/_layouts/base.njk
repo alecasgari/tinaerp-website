@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}" dir="{{ site.dir }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه با سرور رایگان{% endif %}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="keywords" content="نرم‌افزار ERP فارسی, تینا ERP, سیستم یکپارچه مدیریت کسب‌وکار, نرم‌افزار فروش و انبار, حسابداری فارسی, تقویم شمسی, سرور رایگان ERP">
+  <meta name="robots" content="{{ robots or 'index, follow' }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:title" content="{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه{% endif %}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه{% endif %}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <link rel="icon" href="{{ '/assets/img/favicon.png' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/glass.css' | url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "تینا ERP",
+    "url": "{{ site.url }}",
+    "email": "{{ site.email }}",
+    "telephone": "{{ site.phoneTel }}",
+    "description": "{{ site.description }}",
+    "slogan": "{{ site.slogan }}"
+  }
+  </script>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("tina-glass-theme") || "light";
+        document.documentElement.setAttribute("data-theme", t);
+        document.documentElement.setAttribute("data-accent", "blue");
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="page-glass{% if bodyClass %} {{ bodyClass }}{% endif %}">
+  {% include "glass-header.njk" %}
+  <main id="main" class="glass-main">
+    {{ content | safe }}
+  </main>
+  {% include "glass-footer.njk" %}
+  {% include "contact-modal.njk" %}
+  <script src="{{ '/assets/js/main.js' | url }}" defer></script>
+  <script src="{{ '/assets/js/glass.js' | url }}" defer></script>
+  <script src="{{ '/assets/js/contact-form.js' | url }}" defer></script>
+</body>
+</html>

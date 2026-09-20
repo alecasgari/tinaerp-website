@@ -1,0 +1,90 @@
+<div id="contact-modal" class="c-modal" hidden data-thanks-url="{{ '/thanks/' | url }}" data-webhook="{{ site.contactWebhook }}">
+  <div class="c-modal-backdrop" data-contact-close></div>
+  <div class="c-modal-panel" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <div class="c-modal-top">
+      <div>
+        <p class="c-modal-kicker">تینا ERP</p>
+        <h2 id="contact-modal-title">درخواست مشاوره و دمو</h2>
+      </div>
+      <button type="button" class="g-icon-btn" data-contact-close aria-label="بستن">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <form id="contact-lead-form" class="c-form" novalidate>
+      <div class="c-row c-row-2">
+        <label class="c-field">
+          <span>نام</span>
+          <input type="text" name="firstName" autocomplete="given-name" required maxlength="60" placeholder="مثلاً علی">
+          <small class="c-error" data-error-for="firstName" hidden></small>
+        </label>
+        <label class="c-field">
+          <span>نام خانوادگی</span>
+          <input type="text" name="lastName" autocomplete="family-name" required maxlength="60" placeholder="مثلاً محمدی">
+          <small class="c-error" data-error-for="lastName" hidden></small>
+        </label>
+      </div>
+
+      <label class="c-field">
+        <span>نام شرکت، سازمان یا مجموعه</span>
+        <input type="text" name="company" autocomplete="organization" required maxlength="120" placeholder="نام مجموعه">
+        <small class="c-error" data-error-for="company" hidden></small>
+      </label>
+
+      <label class="c-field">
+        <span>تعداد اعضای تیم</span>
+        <select name="teamSize" required>
+          <option value="" disabled selected>انتخاب کنید</option>
+          <option value="1">۱ نفر</option>
+          <option value="2-5">۲ تا ۵ نفر</option>
+          <option value="5-10">۵ تا ۱۰ نفر</option>
+          <option value="10-50">۱۰ تا ۵۰ نفر</option>
+          <option value="50+">بالای ۵۰ نفر</option>
+        </select>
+        <small class="c-error" data-error-for="teamSize" hidden></small>
+      </label>
+
+      <div class="c-row c-row-2">
+        <label class="c-field">
+          <span>شماره واتساپ</span>
+          <input type="tel" name="whatsapp" inputmode="numeric" autocomplete="tel" required maxlength="11" placeholder="09123456789" pattern="09[0-9]{9}">
+          <small class="c-hint">۱۱ رقم انگلیسی، شروع با ۰۹</small>
+          <small class="c-error" data-error-for="whatsapp" hidden></small>
+        </label>
+        <label class="c-field">
+          <span>ایمیل</span>
+          <input type="email" name="email" autocomplete="email" required maxlength="120" placeholder="name@company.com" dir="ltr">
+          <small class="c-error" data-error-for="email" hidden></small>
+        </label>
+      </div>
+
+      <fieldset class="c-field c-radio-group">
+        <legend>آیا در حال حاضر امور خود را به‌صورت سیستماتیک انجام می‌دهید؟</legend>
+        <div class="c-radios">
+          <label class="c-radio">
+            <input type="radio" name="systematic" value="yes" required>
+            <span>بله</span>
+          </label>
+          <label class="c-radio">
+            <input type="radio" name="systematic" value="no">
+            <span>خیر</span>
+          </label>
+        </div>
+        <small class="c-error" data-error-for="systematic" hidden></small>
+      </fieldset>
+
+      <label class="c-field">
+        <span>متن درخواست <em class="c-count" data-char-count>۰ / ۳۰۰</em></span>
+        <textarea name="message" rows="4" required maxlength="300" placeholder="نیاز یا سوال خود را کوتاه بنویسید…"></textarea>
+        <small class="c-error" data-error-for="message" hidden></small>
+      </label>
+
+      <p class="c-form-status" data-form-status hidden role="status"></p>
+
+      <button type="submit" class="btn btn-primary c-submit">
+        <span data-submit-label>ارسال درخواست</span>
+        <span data-submit-loading hidden>در حال ارسال…</span>
+      </button>
+    </form>
+  </div>
+</div>

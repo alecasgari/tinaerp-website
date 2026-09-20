@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /blog/
+title: بلاگ تینا ERP
+description: راهنما و مقالات نرم‌افزار ERP فارسی تینا — شروع کار، چرخه فروش و نکات عملیاتی برای تیم‌های ایرانی.
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">{{ site.title }}</p>
+    <h1>بلاگ نرم‌افزار ERP فارسی</h1>
+    <p class="lead">نکات کاربردی، راهنمای شروع و سناریوهای واقعی فروش، انبار و مالی با تینا ERP.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container post-list">
+    {% for post in collections.blog %}
+    <article class="panel post-card">
+      <p class="post-meta">{{ post.date | readableDate }}</p>
+      <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+      {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+      <a class="post-more" href="{{ post.url | url }}">ادامه مطلب ←</a>
+    </article>
+    {% else %}
+    <p class="section-sub">هنوز مطلبی منتشر نشده است.</p>
+    {% endfor %}
+  </div>
+</section>

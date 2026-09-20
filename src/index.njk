@@ -1,0 +1,436 @@
+---
+layout: glass-base.njk
+permalink: /
+title: تینا ERP
+description: نرم‌افزار ERP فارسی تینا — فروش، انبار، حسابداری، تولید و مکاتبات در یک پنل یکپارچه با تقویم شمسی، رابط RTL و سرور رایگان؛ جایگزین چند نرم‌افزار پراکنده.
+bodyClass: page-glass
+---
+<section class="home-hero" aria-label="معرفی نرم‌افزار ERP فارسی تینا">
+  <div class="home-hero-bg" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+    <span class="mesh"></span>
+  </div>
+  <div class="container home-hero-grid">
+    <div class="home-hero-copy reveal">
+      <div class="home-hero-text">
+        <img class="home-hero-logo" src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="لوگوی نرم‌افزار تینا ERP" width="160" height="38">
+        <h1 class="home-hero-title">نرم‌افزار ERP فارسی تینا</h1>
+        <p class="home-hero-lead">سیستم یکپارچه فروش، انبار، مالی، تولید و مکاتبات — RTL، تقویم شمسی، سریع‌تر از چند نرم‌افزار جدا و با سرور رایگان.</p>
+      </div>
+      <div class="btn-row home-hero-actions">
+        <a class="btn btn-primary" href="{{ '/demo/' | url }}" data-open-contact>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>
+          درخواست دمو
+        </a>
+        <a class="btn btn-ghost" href="{{ '/features/' | url }}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          کاوش ویژگی‌ها
+        </a>
+      </div>
+    </div>
+    <div class="home-hero-stage reveal" style="--d:100ms" aria-hidden="true">
+      <div class="ui-shell">
+        <div class="ui-top">
+          <img src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="" width="72" height="18">
+          <span class="ui-pill">زنده</span>
+        </div>
+        <div class="ui-body">
+          <div class="ui-rail">
+            <span class="ui-dot is-on"></span>
+            <span class="ui-dot"></span>
+            <span class="ui-dot"></span>
+            <span class="ui-dot"></span>
+          </div>
+          <div class="ui-main">
+            <div class="ui-row ui-row-head">
+              <span>پیش‌فاکتور جدید</span>
+              <span class="ui-badge">پیش‌نویس</span>
+            </div>
+            <div class="ui-bars">
+              <i style="--w:78%"></i>
+              <i style="--w:54%"></i>
+              <i style="--w:66%"></i>
+              <i style="--w:42%"></i>
+            </div>
+            <div class="ui-chart">
+              <span style="--h:40%"></span>
+              <span style="--h:68%"></span>
+              <span style="--h:52%"></span>
+              <span style="--h:86%"></span>
+              <span style="--h:70%"></span>
+              <span style="--h:94%"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-chip float-a">فروش</div>
+      <div class="float-chip float-b">انبار</div>
+      <div class="float-chip float-c">مالی</div>
+    </div>
+  </div>
+</section>
+
+<section class="home-marquee" aria-label="ماژول‌های نرم‌افزار ERP تینا">
+  <div class="marquee-track">
+    {% set modules = ["فروش", "انبار", "حسابداری", "تولید", "تامین", "مکاتبات", "تقویم شمسی", "گردش‌کار", "CRM"] %}
+    {% for i in range(0, 4) %}
+    <div class="marquee-group"{% if i > 0 %} aria-hidden="true"{% endif %}>
+      {% for label in modules %}<span>{{ label }}</span>{% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section home-flow mesh-bg">
+  <div class="container">
+    <header class="home-head reveal">
+      <h2 class="section-title">جریان کاری یکپارچه در نرم‌افزار ERP</h2>
+      <p class="section-sub">از ثبت سند تا تایید و چاپ — بدون پرش بین اکسل، واتساپ و چند نرم‌افزار جدا.</p>
+    </header>
+    <div class="flow-rail">
+      <article class="flow-card reveal" style="--d:0ms">
+        <div class="flow-num">۰۱</div>
+        <h3>ثبت سریع فارسی</h3>
+        <p>اسناد فروش، انبار و مالی با فرم‌های RTL و تاریخ شمسی.</p>
+      </article>
+      <article class="flow-card reveal" style="--d:60ms">
+        <div class="flow-num">۰۲</div>
+        <h3>تایید هوشمند</h3>
+        <p>نقش و وضعیت مشخص؛ بدون تایید، سند جلو نمی‌رود.</p>
+      </article>
+      <article class="flow-card reveal" style="--d:120ms">
+        <div class="flow-num">۰۳</div>
+        <h3>خروجی برند شما</h3>
+        <p>چاپ و PDF با سربرگ و هویت بصری کسب‌وکارتان.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section home-unify mesh-bg">
+  <div class="container">
+    <header class="home-head reveal">
+      <h2 class="section-title">یک ERP به‌جای چند نرم‌افزار رقیب</h2>
+      <p class="section-sub">CRM جدا، حسابداری جدا، انبار جدا؟ تینا همه را یکپارچه می‌کند — با هزینه کمتر و سرور رایگان.</p>
+    </header>
+    <div class="unify-board reveal">
+      <div class="unify-scatter" aria-hidden="true">
+        <span class="tool-chip">CRM</span>
+        <span class="tool-chip">حسابداری</span>
+        <span class="tool-chip">انبار</span>
+        <span class="tool-chip">اکسل</span>
+        <span class="tool-chip">ایمیل</span>
+        <span class="tool-chip">تولید</span>
+      </div>
+      <div class="unify-arrow" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M6 14l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="unify-target">
+        <img src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="تینا ERP یکپارچه" width="120" height="30">
+        <p>یک منبع حقیقت برای کل سازمان</p>
+      </div>
+    </div>
+    <ul class="unify-points reveal">
+      <li>دیگر داده بین سیستم‌های رقیب کپی نمی‌شود</li>
+      <li>گزارش واحد از فروش تا مالی — بدون اکسل موازی</li>
+      <li>سرور رایگان و هزینهٔ لایسنس کمتر از پکیج‌های چندتکه</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section home-showcase" aria-label="قابلیت‌های تینا ERP">
+  <div class="container showcase-row reveal">
+    <div class="showcase-visual funnel-wrap">
+      <div class="funnel" aria-hidden="true">
+        <div class="funnel-step" style="--i:0"><span>سرنخ</span><b>۱۲۰</b></div>
+        <div class="funnel-step" style="--i:1"><span>فرصت</span><b>۶۴</b></div>
+        <div class="funnel-step" style="--i:2"><span>پیش‌فاکتور</span><b>۲۸</b></div>
+        <div class="funnel-step" style="--i:3"><span>فاکتور</span><b>۱۲</b></div>
+        <div class="funnel-drop"></div>
+      </div>
+    </div>
+    <div class="showcase-copy">
+      <p class="home-kicker">فروش و CRM</p>
+      <h2 class="section-title">قیف فروش زنده؛ از سرنخ تا فاکتور</h2>
+      <p class="section-sub">نرم‌افزار فروش فارسی با مراحل شفاف — تیم می‌داند کجا گیر کرده و چه چیزی باید تبدیل شود؛ بدون CRM جداگانه.</p>
+      <a class="btn btn-ghost btn-sm" href="{{ '/features/' | url }}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        جزئیات فروش
+      </a>
+    </div>
+  </div>
+
+  <div class="container showcase-row showcase-media reverse reveal">
+    <div class="showcase-visual media-card">
+      <img src="{{ '/assets/img/stock/warehouse.jpg' | url }}" alt="نرم‌افزار انبارداری و موجودی لحظه‌ای تینا ERP" loading="lazy" width="560" height="360">
+    </div>
+    <div class="showcase-copy">
+      <p class="home-kicker">انبار</p>
+      <h2 class="section-title">موجودی لحظه‌ای؛ تصمیم سریع‌تر از اکسل</h2>
+      <p class="section-sub">حواله، موجودی و هشدار کمبود در یک نرم‌افزار انبارداری متصل به فروش و خرید — بدون حدس زدن در فایل اکسل.</p>
+      <a class="btn btn-ghost btn-sm" href="{{ '/features/' | url }}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        جزئیات انبار
+      </a>
+    </div>
+  </div>
+
+  <div class="container showcase-row showcase-media reveal">
+    <div class="showcase-visual media-card">
+      <img src="{{ '/assets/img/stock/finance.jpg' | url }}" alt="نرم‌افزار حسابداری فارسی و مالی تینا ERP" loading="lazy" width="560" height="360">
+    </div>
+    <div class="showcase-copy">
+      <p class="home-kicker">مالی و حسابداری</p>
+      <h2 class="section-title">اسناد مالی هم‌تراز با عملیات روزمره</h2>
+      <p class="section-sub">ثبت، تطبیق و گزارش با دقت ریال و تاریخ شمسی — حسابداری فارسی متصل به فروش و انبار، نه یک نرم‌افزار جدا.</p>
+      <a class="btn btn-ghost btn-sm" href="{{ '/features/' | url }}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        جزئیات مالی
+      </a>
+    </div>
+  </div>
+
+  <div class="container showcase-row showcase-media reverse reveal">
+    <div class="showcase-visual media-card">
+      <img src="{{ '/assets/img/stock/factory.jpg' | url }}" alt="نرم‌افزار تولید و برنامه‌ریزی کارخانه در تینا ERP" loading="lazy" width="560" height="360">
+    </div>
+    <div class="showcase-copy">
+      <p class="home-kicker">تولید</p>
+      <h2 class="section-title">از سفارش مشتری تا خط تولید</h2>
+      <p class="section-sub">برنامه‌ریزی تولید، مصرف مواد و خروجی کار — متصل به انبار و فروش در همان ERP فارسی.</p>
+      <a class="btn btn-ghost btn-sm" href="{{ '/features/' | url }}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        قابلیت تولید
+      </a>
+    </div>
+  </div>
+
+  <div class="container showcase-row showcase-media reveal">
+    <div class="showcase-visual media-card">
+      <img src="{{ '/assets/img/stock/supply.jpg' | url }}" alt="چرخه تامین و خرید در نرم‌افزار ERP تینا" loading="lazy" width="560" height="360">
+    </div>
+    <div class="showcase-copy">
+      <p class="home-kicker">چرخه تامین</p>
+      <h2 class="section-title">از تامین‌کننده تا رسید انبار</h2>
+      <p class="section-sub">درخواست خرید، سفارش به تامین‌کننده و رسید کالا در یک مسیر قابل ردیابی — شفاف‌تر از نرم‌افزارهای خرید جدا.</p>
+      <a class="btn btn-ghost btn-sm" href="{{ '/features/' | url }}">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        چرخه تامین
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section home-stats mesh-bg-dark" aria-label="مزایای تینا ERP">
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <div class="stat-visual" aria-hidden="true">
+        <svg class="stat-ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-fg" data-ring="100" style="--p:0"/></svg>
+      </div>
+      <strong class="stat-value"><span class="count" data-target="1">۰</span><span class="stat-suffix">پنل</span></strong>
+      <span>جایگزین چند نرم‌افزار پراکنده</span>
+    </div>
+    <div class="stat reveal" style="--d:60ms">
+      <div class="stat-visual" aria-hidden="true">
+        <div class="stat-bars" data-bars="6">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+      <strong class="stat-value"><span class="count" data-target="6">۰</span><span class="stat-suffix">+</span></strong>
+      <span>حوزهٔ کاری یکپارچه</span>
+    </div>
+    <div class="stat reveal" style="--d:120ms">
+      <div class="stat-visual" aria-hidden="true">
+        <svg class="stat-ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-fg" data-ring="100" style="--p:0"/></svg>
+      </div>
+      <strong class="stat-value"><span class="count" data-target="100">۰</span><span class="stat-suffix">٪</span></strong>
+      <span>رابط فارسی، RTL و سرور رایگان</span>
+    </div>
+  </div>
+</section>
+
+<section class="section home-modules home-modules-glass">
+  <div class="container">
+    <header class="home-head reveal">
+      <h2 class="section-title">ماژول‌های ERP برای تیم‌های واقعی ایران</h2>
+      <p class="section-sub">آنچه هر روز لمس می‌کنید — مرتب، فارسی و قابل گسترش؛ بدون هزینهٔ پنهان سرور مثل بسیاری از رقبا.</p>
+    </header>
+    <div class="module-mosaic">
+      <a class="mosaic-item glass-card glow-a reveal" href="{{ '/features/' | url }}">
+        <span class="mosaic-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v12H4z" stroke="currentColor" stroke-width="1.7"/><path d="M8 7V5a4 4 0 018 0v2" stroke="currentColor" stroke-width="1.7"/><path d="M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>تینا برای کل سازمان</h3>
+        <p>یک منبع حقیقت برای فروش، انبار، مالی و مکاتبات.</p>
+      </a>
+      <div class="mosaic-item glass-card glow-b reveal" style="--d:40ms">
+        <span class="mosaic-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>تقویم شمسی</h3>
+        <p>تاریخ‌های کاری به شمسی، بدون تبدیل دستی مثل نرم‌افزارهای لاتین.</p>
+      </div>
+      <div class="mosaic-item glass-card glow-c reveal" style="--d:80ms">
+        <span class="mosaic-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 8h10v11H7z" stroke="currentColor" stroke-width="1.7"/><path d="M9 8V6h6v2M9 12h6M9 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>چاپ برند</h3>
+        <p>سربرگ و قالب خروجی هم‌رنگ هویت شما.</p>
+      </div>
+      <div class="mosaic-item glass-card glow-d reveal" style="--d:120ms">
+        <span class="mosaic-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M5 19a7 7 0 0114 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M17 11l2 2 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>نقش و دسترسی</h3>
+        <p>هر نفر فقط آنچه لازم است را می‌بیند.</p>
+      </div>
+      <div class="mosaic-item glass-card glow-e reveal" style="--d:160ms">
+        <span class="mosaic-ico" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h12l4 4v8H4V6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11h6M8 14h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <h3>مکاتبات اداری</h3>
+        <p>نامه صادره با استاندارد اداری، داخل همان سیستم ERP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section home-faq home-faq-glass" id="faq" aria-label="سوالات پرتکرار درباره تینا ERP">
+  <div class="container narrow">
+    <header class="home-head reveal" style="text-align:center;margin-inline:auto">
+      <h2 class="section-title">سوالات پرتکرار درباره تینا ERP</h2>
+      <p class="section-sub">چرا تینا از رقبا جلوتر است — از سرور رایگان تا یکپارچگی واقعی.</p>
+    </header>
+    <div class="faq-list reveal">
+      <details class="faq-item" open>
+        <summary>تینا چه فرقی با نرم‌افزارهای رقیب دارد؟</summary>
+        <p>بسیاری از رقبا چند محصول جدا یا لایسنس و هاست گران می‌فروشند. تینا یک ERP فارسی یکپارچه است: فروش، انبار، مالی، تولید و مکاتبات در یک پنل، با RTL و تقویم شمسی — و سرور رایگان تا هزینهٔ زیرساخت شما کمتر بماند.</p>
+      </details>
+      <details class="faq-item">
+        <summary>آیا واقعاً سرور رایگان می‌دهید؟</summary>
+        <p>بله. برخلاف بسیاری از نرم‌افزارهای ERP که هزینهٔ جداگانهٔ سرور و نگهداری می‌گیرند، تینا سرور رایگان ارائه می‌کند تا استقرار ساده‌تر و قیمت تمام‌شده شفاف‌تر باشد. جزئیات پلن در صفحهٔ قیمت و جلسهٔ دمو توضیح داده می‌شود.</p>
+      </details>
+      <details class="faq-item">
+        <summary>تینا جایگزین چند نرم‌افزار می‌شود؟</summary>
+        <p>معمولاً CRM سبک، فروش، انبار، مالی عملیاتی و مکاتبات را در یک پنل جمع می‌کند — یعنی دیگر لازم نیست چند نرم‌افزار رقیب بخرید و داده را بین آن‌ها دستی رد کنید.</p>
+      </details>
+      <details class="faq-item">
+        <summary>چرا هزینهٔ کل مالکیت کمتر از رقباست؟</summary>
+        <p>با یکپارچگی ماژول‌ها، یک لایسنس به‌جای چند محصول، سرور رایگان و آموزش کمتر برای چند رابط جدا، هزینهٔ کل (نرم‌افزار + زیرساخت + زمان تیم) معمولاً پایین‌تر از پکیج‌های چندتکه رقبا تمام می‌شود.</p>
+      </details>
+      <details class="faq-item">
+        <summary>راه‌اندازی چقدر طول می‌کشد؟</summary>
+        <p>استقرار پایه معمولاً چند هفته است. چون سرور از سمت تینا آماده است و رابط از روز اول فارسی است، شروع کار از بسیاری از ERPهای سنگین و لاتین‌محور سریع‌تر است.</p>
+      </details>
+      <details class="faq-item">
+        <summary>آیا رابط کاملاً فارسی و شمسی است؟</summary>
+        <p>بله — RTL، متون فارسی و تاریخ شمسی برای کار روزمره تیم ایرانی طراحی شده؛ برخلاف نرم‌افزارهایی که فقط ترجمهٔ سطحی دارند.</p>
+      </details>
+      <details class="faq-item">
+        <summary>داده‌ها امن است و مال ما می‌ماند؟</summary>
+        <p>دسترسی نقش‌محور دارید و دادهٔ کسب‌وکار متعلق به شماست. روی سرور اختصاصی تینا میزبانی می‌شود و در دمو و قرارداد، جزئیات پشتیبان‌گیری و دسترسی توضیح داده می‌شود.</p>
+      </details>
+      <details class="faq-item">
+        <summary>چطور دمو بگیرم یا با تیم حرف بزنم؟</summary>
+        <p>از صفحهٔ دمو وقت رزرو کنید، در واتساپ به {{ site.phone }} پیام دهید یا تماس بگیرید — جلسه کوتاه و بدون تعهد است تا تفاوت تینا با رقبا را روی سناریوی خودتان ببینید.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "تینا چه فرقی با نرم‌افزارهای رقیب دارد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تینا یک ERP فارسی یکپارچه است با فروش، انبار، مالی، تولید و مکاتبات در یک پنل، RTL، تقویم شمسی و سرور رایگان."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا واقعاً سرور رایگان می‌دهید؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله. تینا سرور رایگان ارائه می‌کند تا هزینهٔ زیرساخت کمتر و قیمت تمام‌شده شفاف‌تر باشد."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "تینا جایگزین چند نرم‌افزار می‌شود؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "معمولاً CRM سبک، فروش، انبار، مالی عملیاتی و مکاتبات را در یک پنل جمع می‌کند."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چرا هزینهٔ کل مالکیت کمتر از رقباست؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "یکپارچگی ماژول‌ها، یک لایسنس به‌جای چند محصول، سرور رایگان و آموزش کمتر باعث کاهش هزینهٔ کل می‌شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "راه‌اندازی چقدر طول می‌کشد؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "استقرار پایه معمولاً چند هفته است؛ سرور آماده و رابط فارسی شروع کار را سریع‌تر می‌کند."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا رابط کاملاً فارسی و شمسی است؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "بله؛ RTL، متون فارسی و تاریخ شمسی برای کار روزمره تیم ایرانی."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "داده‌ها امن است و مال ما می‌ماند؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "دسترسی نقش‌محور است و داده متعلق به شماست؛ جزئیات پشتیبان‌گیری در دمو و قرارداد توضیح داده می‌شود."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "چطور دمو بگیرم یا با تیم حرف بزنم؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "از صفحه دمو وقت رزرو کنید یا با شماره ۰۹۱۰۹۸۷۴۸۷۲ در واتساپ یا تلفن تماس بگیرید."
+      }
+    }
+  ]
+}
+</script>
+
+<section class="home-cta-band mesh-bg">
+  <div class="container home-cta-inner reveal">
+    <img src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="" class="cta-logo" width="130" height="32">
+    <h2 class="section-title">تینا ERP را با سرور رایگان روی دادهٔ خودتان ببینید</h2>
+    <p class="section-sub">دموی کوتاه — تفاوت یکپارچگی و هزینه با رقبا را بدون تعهد نصب مقایسه کنید.</p>
+    <div class="btn-row btn-row-center">
+      <a class="btn btn-primary" href="{{ '/demo/' | url }}" data-open-contact>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>
+        رزرو دمو
+      </a>
+      <a class="btn btn-ghost" href="{{ '/contact/' | url }}" data-open-contact>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>
+        گفتگو با تیم
+      </a>
+      <a class="btn btn-ghost" href="tel:{{ site.phoneTel }}">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4h3l1.5 4-2 1.5a12 12 0 006 6L16.5 14l4 1.5v3A2 2 0 0118.5 20 15 15 0 014 5.5 2 2 0 016.5 4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        {{ site.phone }}
+      </a>
+    </div>
+  </div>
+</section>

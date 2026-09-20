@@ -1,0 +1,32 @@
+---
+layout: base.njk
+permalink: /thanks/
+title: درخواست شما ثبت شد
+description: از تماس شما با تینا ERP سپاسگزاریم — به‌زودی پاسخ می‌دهیم.
+robots: noindex
+bodyClass: page-thanks-body
+---
+<section class="page-thanks" aria-label="تشکر از ارسال درخواست">
+  <div class="thanks-card">
+    <div class="thanks-confetti" aria-hidden="true">
+      <span style="--x:-60px;--y:-90px;left:50%;top:40%;background:#2490ef;animation-delay:0.1s"></span>
+      <span style="--x:70px;--y:-80px;left:50%;top:40%;background:#34c759;animation-delay:0.18s"></span>
+      <span style="--x:-40px;--y:-120px;left:50%;top:42%;background:#f59e0b;animation-delay:0.26s"></span>
+      <span style="--x:90px;--y:-50px;left:48%;top:45%;background:#6366f1;animation-delay:0.12s"></span>
+      <span style="--x:-90px;--y:-40px;left:52%;top:45%;background:#22d3ee;animation-delay:0.22s"></span>
+      <span style="--x:30px;--y:-110px;left:50%;top:38%;background:#fb7185;animation-delay:0.3s"></span>
+    </div>
+    <div class="thanks-check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h1>درخواست‌تان ثبت شد</h1>
+    <p>ممنون که با تینا ERP تماس گرفتید. تیم ما پیام را دریافت کرد و به‌زودی از طریق واتساپ یا ایمیل پاسخ می‌دهد.</p>
+    <div class="thanks-actions">
+      <a class="btn btn-primary" href="{{ '/' | url }}">بازگشت به خانه</a>
+      <a class="btn btn-ghost" href="{{ '/features/' | url }}">کاوش ویژگی‌ها</a>
+      <a class="btn btn-ghost" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">چت واتساپ</a>
+    </div>
+  </div>
+</section>

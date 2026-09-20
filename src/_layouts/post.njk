@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<article class="section post" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="container narrow">
+    <p class="eyebrow">بلاگ · {{ site.title }}</p>
+    <h1 class="post-title" itemprop="headline">{{ title }}</h1>
+    <p class="post-meta">
+      <time itemprop="datePublished">{{ date | readableDate }}</time>
+      {% if summary %} · <span itemprop="description">{{ summary }}</span>{% endif %}
+    </p>
+    <div class="prose post-body" itemprop="articleBody">
+      {{ content | safe }}
+    </div>
+    <p class="post-back"><a href="{{ '/blog/' | url }}">← بازگشت به بلاگ</a></p>
+  </div>
+</article>

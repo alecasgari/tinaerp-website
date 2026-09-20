@@ -1,0 +1,49 @@
+---
+layout: base.njk
+permalink: /demo/
+title: درخواست دمو تینا ERP
+description: دموی رایگان نرم‌افزار ERP فارسی تینا — فروش، انبار، مالی و سرور رایگان را بدون تعهد نصب ببینید.
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">{{ site.title }}</p>
+    <h1>درخواست دموی ERP فارسی</h1>
+    <p class="lead">یک جلسهٔ کوتاه روی محیط واقعی — تفاوت یکپارچگی و سرور رایگان تینا با نرم‌افزارهای رقیب را بدون تعهد نصب ببینید.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container demo-grid">
+    <article class="panel" style="padding:1.35rem 1.2rem">
+      <h2 class="section-title" style="font-size:1.15rem;margin-top:0">در دمو چه می‌بینید؟</h2>
+      <ul class="price-list">
+        <li>ناوبری پنل فارسی و جستجوی سراسری</li>
+        <li>نمونه اسناد فروش، انبار و چاپ برند</li>
+        <li>تاریخ شمسی، RTL و گردش‌کار تایید</li>
+        <li>توضیح سرور رایگان و مدل استقرار</li>
+        <li>مقایسهٔ هزینهٔ کل با پکیج‌های چندتکه رقبا</li>
+      </ul>
+      {% if site.demoUrl %}
+      <p style="margin-top:1.25rem">
+        <a class="btn btn-ghost" href="{{ site.demoUrl }}" target="_blank" rel="noopener">باز کردن محیط نمونه</a>
+      </p>
+      {% endif %}
+    </article>
+    <article class="panel" style="padding:1.35rem 1.2rem">
+      <h2 class="section-title" style="font-size:1.15rem;margin-top:0">هماهنگی جلسه</h2>
+      <p>فرم را پر کنید؛ معمولاً ظرف یک روز کاری پاسخ می‌دهیم. جلسه کوتاه و بدون تعهد است.</p>
+      <p class="btn-row" style="margin-top:1.25rem;flex-wrap:wrap">
+        <button type="button" class="btn btn-primary" data-open-contact>باز کردن فرم درخواست</button>
+        <a class="btn btn-ghost" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">واتساپ {{ site.phone }}</a>
+        <a class="btn btn-ghost" href="tel:{{ site.phoneTel }}">تماس {{ site.phone }}</a>
+      </p>
+    </article>
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.search.indexOf("auto=0") === -1) {
+      var btn = document.querySelector("[data-open-contact]");
+      if (btn) setTimeout(function () { btn.click(); }, 350);
+    }
+  });
+</script>

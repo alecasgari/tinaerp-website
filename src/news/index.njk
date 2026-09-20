@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /news/
+title: اخبار تینا ERP
+description: اخبار و به‌روزرسانی‌های نرم‌افزار ERP فارسی تینا — نسخه‌ها، تقویم شمسی و ویژگی‌های جدید.
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">{{ site.title }}</p>
+    <h1>اخبار و به‌روزرسانی‌های تینا ERP</h1>
+    <p class="lead">اعلان نسخه‌ها، بهبود محصول و رویدادهای مرتبط با نرم‌افزار ERP فارسی تینا.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container post-list">
+    {% for item in collections.news %}
+    <article class="panel post-card">
+      <p class="post-meta">{{ item.date | readableDate }}</p>
+      <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
+      {% if item.data.summary %}<p>{{ item.data.summary }}</p>{% endif %}
+      <a class="post-more" href="{{ item.url | url }}">ادامه ←</a>
+    </article>
+    {% else %}
+    <p class="section-sub">خبری منتشر نشده است.</p>
+    {% endfor %}
+  </div>
+</section>

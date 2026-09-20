@@ -1,0 +1,26 @@
+{
+  "title": "تینا ERP",
+  "tagline": "نرم‌افزار ERP فارسی یکپارچه",
+  "slogan": "تینا، راهکار شما!",
+  "description": "تینا ERP؛ نرم‌افزار ERP فارسی برای فروش، انبار، حسابداری، تولید و مکاتبات — یکپارچه، RTL، تقویم شمسی و سرور رایگان نسبت به رقبا.",
+  "url": "https://alecasgari.github.io/tinaerp-website",
+  "pathPrefix": "/tinaerp-website",
+  "lang": "fa",
+  "dir": "rtl",
+  "email": "hello@tinaerp.ir",
+  "phone": "09109874872",
+  "phoneTel": "+989109874872",
+  "whatsapp": "989109874872",
+  "demoUrl": "https://erp.k-beauty.academy",
+  "contactWebhook": "https://n8n.alecasgari.com/webhook/4b02565f-4346-4495-9bc9-ee4a3bf659d7",
+  "nav": [
+    { "label": "خانه", "href": "/" },
+    { "label": "ویژگی‌ها", "href": "/features/" },
+    { "label": "قیمت", "href": "/pricing/" },
+    { "label": "مستندات", "href": "/docs/" },
+    { "label": "دمو", "href": "/demo/" },
+    { "label": "بلاگ", "href": "/blog/" },
+    { "label": "اخبار", "href": "/news/" },
+    { "label": "تماس", "href": "/contact/" }
+  ]
+}
