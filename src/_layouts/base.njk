@@ -10,33 +10,216 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','{{ site.gtmId }}');</script>
   <!-- End Google Tag Manager -->
-  <title>{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه با سرور رایگان{% endif %}</title>
-  <meta name="description" content="{{ description or site.description }}">
-  <meta name="keywords" content="نرم‌افزار ERP فارسی, تینا ERP, سیستم یکپارچه مدیریت کسب‌وکار, نرم‌افزار فروش و انبار, حسابداری فارسی, تقویم شمسی, سرور رایگان ERP">
-  <meta name="robots" content="{{ robots or 'index, follow' }}">
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <meta property="og:type" content="website">
+  {% set pageTitle = title if (title and title != site.title) else none %}
+  {% set fullTitle = (pageTitle + " · " + site.title) if pageTitle else ("تینا ERP | نرم‌افزار ERP فارسی یکپارچه با سرور رایگان") %}
+  {% set pageDesc = description or site.description %}
+  {% set canonicalUrl = site.url + page.url %}
+  {% set shareImage = site.url + site.ogImage %}
+  {% set robotsValue = robots if robots else "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
+  {% if robots and (robots | contains("noindex")) %}
+    {% set robotsValue = "noindex, nofollow" %}
+  {% endif %}
+  {% set isBlogPost = page.url and (page.url | startsWith("/blog/")) and page.url != "/blog/" %}
+  {% set isNewsPost = page.url and (page.url | startsWith("/news/")) and page.url != "/news/" %}
+  <title>{{ fullTitle }}</title>
+  <meta name="description" content="{{ pageDesc }}">
+  <meta name="keywords" content="نرم‌افزار ERP فارسی, تینا ERP, سیستم یکپارچه مدیریت کسب‌وکار, نرم‌افزار فروش و انبار, حسابداری فارسی, تقویم شمسی, سرور رایگان ERP, نرم‌افزار مالی فارسی, Tina ERP">
+  <meta name="author" content="تینا ERP">
+  <meta name="creator" content="تینا ERP">
+  <meta name="publisher" content="تینا ERP">
+  <meta name="robots" content="{{ robotsValue }}">
+  <meta name="googlebot" content="{{ robotsValue }}">
+  <meta name="bingbot" content="{{ robotsValue }}">
+  <meta name="theme-color" content="{{ site.themeColor }}">
+  <meta name="msapplication-TileColor" content="{{ site.themeColor }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="application-name" content="{{ site.title }}">
+  <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  <link rel="alternate" hreflang="fa-IR" href="{{ canonicalUrl }}">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml">
+  <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+  <link rel="author" href="{{ site.url }}/llms.txt" title="llms.txt">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <meta property="og:type" content="{% if ogType %}{{ ogType }}{% elif isBlogPost or isNewsPost %}article{% else %}website{% endif %}">
   <meta property="og:locale" content="fa_IR">
-  <meta property="og:title" content="{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه{% endif %}">
-  <meta property="og:description" content="{{ description or site.description }}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ fullTitle }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:image" content="{{ shareImage }}">
+  <meta property="og:image:secure_url" content="{{ shareImage }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="{{ site.ogImageWidth }}">
+  <meta property="og:image:height" content="{{ site.ogImageHeight }}">
+  <meta property="og:image:alt" content="تینا ERP — نرم‌افزار ERP فارسی یکپارچه">
+  {% if isBlogPost or isNewsPost %}
+  <meta property="article:publisher" content="{{ site.url }}">
+  {% if date %}<meta property="article:published_time" content="{{ date | isoDate }}">{% endif %}
+  {% endif %}
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if title and title != site.title %}{{ title }} · {{ site.title }}{% else %}تینا ERP | نرم‌افزار ERP فارسی یکپارچه{% endif %}">
-  <meta name="twitter:description" content="{{ description or site.description }}">
-  <link rel="icon" href="{{ '/assets/img/favicon.png' | url }}">
+  <meta name="twitter:title" content="{{ fullTitle }}">
+  <meta name="twitter:description" content="{{ pageDesc }}">
+  <meta name="twitter:image" content="{{ shareImage }}">
+  <meta name="twitter:image:alt" content="تینا ERP — نرم‌افزار ERP فارسی یکپارچه">
+
+  <link rel="icon" href="{{ '/assets/img/favicon.png' | url }}" type="image/png" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/favicon.png' | url }}">
+  <link rel="shortcut icon" href="{{ '/assets/img/favicon.png' | url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   <link rel="stylesheet" href="{{ '/assets/css/glass.css' | url }}">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "تینا ERP",
-    "url": "{{ site.url }}",
-    "email": "{{ site.email }}",
-    "telephone": "{{ site.phoneTel }}",
-    "description": "{{ site.description }}",
-    "slogan": "{{ site.slogan }}"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": "تینا ERP",
+        "alternateName": ["Tina ERP", "تینا"],
+        "url": "{{ site.url }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.url }}/assets/img/tina-logo-wide.png",
+          "width": 512,
+          "height": 128
+        },
+        "image": "{{ shareImage }}",
+        "email": "{{ site.email }}",
+        "telephone": "{{ site.phoneTel }}",
+        "description": "{{ site.description }}",
+        "slogan": "{{ site.slogan }}",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Iran"
+        },
+        "knowsLanguage": ["fa", "fa-IR"],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "{{ site.phoneTel }}",
+            "contactType": "sales",
+            "availableLanguage": ["Persian", "fa"],
+            "areaServed": "IR"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "{{ site.phoneTel }}",
+            "contactType": "customer support",
+            "availableLanguage": ["Persian", "fa"],
+            "areaServed": "IR"
+          }
+        ],
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}",
+        "name": "{{ site.title }}",
+        "alternateName": "Tina ERP",
+        "description": "{{ site.description }}",
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "inLanguage": "fa-IR"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "{{ site.url }}/#software",
+        "name": "تینا ERP",
+        "alternateName": "Tina ERP",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Enterprise Resource Planning",
+        "operatingSystem": "Web",
+        "inLanguage": "fa-IR",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "image": "{{ shareImage }}",
+        "screenshot": "{{ shareImage }}",
+        "offers": {
+          "@type": "Offer",
+          "url": "{{ site.url }}/pricing/",
+          "priceCurrency": "IRR",
+          "availability": "https://schema.org/InStock",
+          "description": "استقرار با سرور رایگان — جزئیات در صفحه قیمت"
+        },
+        "featureList": [
+          "فروش و CRM",
+          "انبار و موجودی",
+          "حسابداری فارسی",
+          "تولید",
+          "چرخه تامین",
+          "مکاتبات",
+          "تقویم شمسی",
+          "RTL",
+          "سرور رایگان"
+        ],
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "provider": { "@id": "{{ site.url }}/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ canonicalUrl }}#webpage",
+        "url": "{{ canonicalUrl }}",
+        "name": "{{ fullTitle }}",
+        "description": "{{ pageDesc }}",
+        "isPartOf": { "@id": "{{ site.url }}/#website" },
+        "about": { "@id": "{{ site.url }}/#software" },
+        "inLanguage": "fa-IR",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "{{ shareImage }}",
+          "width": {{ site.ogImageWidth }},
+          "height": {{ site.ogImageHeight }}
+        },
+        "breadcrumb": { "@id": "{{ canonicalUrl }}#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{ canonicalUrl }}#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "خانه",
+            "item": "{{ site.url }}/"
+          }{% if page.url != "/" %},
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ pageTitle or title or 'صفحه' }}",
+            "item": "{{ canonicalUrl }}"
+          }{% endif %}
+        ]
+      }{% if isBlogPost or isNewsPost %},
+      {
+        "@type": "{% if isNewsPost %}NewsArticle{% else %}BlogPosting{% endif %}",
+        "@id": "{{ canonicalUrl }}#article",
+        "headline": "{{ title }}",
+        "description": "{{ pageDesc }}",
+        "image": "{{ shareImage }}",
+        "datePublished": "{{ date | isoDate }}",
+        "dateModified": "{{ date | isoDate }}",
+        "author": {
+          "@type": "Organization",
+          "@id": "{{ site.url }}/#organization"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "{{ site.url }}/#organization"
+        },
+        "mainEntityOfPage": { "@id": "{{ canonicalUrl }}#webpage" },
+        "inLanguage": "fa-IR",
+        "isPartOf": { "@id": "{{ site.url }}/#website" }
+      }{% endif %}
+    ]
   }
   </script>
   <script>

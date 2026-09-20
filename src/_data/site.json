@@ -14,6 +14,10 @@
   "demoUrl": "https://erp.k-beauty.academy",
   "contactWebhook": "https://n8n.alecasgari.com/webhook/4b02565f-4346-4495-9bc9-ee4a3bf659d7",
   "gtmId": "GTM-5WTBNW2W",
+  "ogImage": "/assets/img/og-share.png",
+  "ogImageWidth": 1536,
+  "ogImageHeight": 1024,
+  "themeColor": "#2490ef",
   "nav": [
     { "label": "خانه", "href": "/" },
     { "label": "ویژگی‌ها", "href": "/features/" },
