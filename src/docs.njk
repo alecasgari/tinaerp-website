@@ -1,16 +1,24 @@
 ---
 layout: base.njk
 permalink: /docs/
-title: مستندات تینا ERP
-description: راهنمای شروع نرم‌افزار ERP فارسی تینا — ناوبری پنل، چرخه فروش، نقش‌ها و مستندات عملیاتی.
+title: مستندات نرم‌افزار ERP فارسی تینا
+description: مستندات نرم‌افزار ERP فارسی تینا — راهنمای شروع، چرخه فروش، تقویم شمسی، نقش‌ها و مسیر آموزش تیم ایرانی.
 ---
 <section class="page-hero">
   <div class="container">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">{{ site.title }}</p>
-    <h1>مستندات نرم‌افزار ERP تینا</h1>
+    <h1>مستندات نرم‌افزار ERP فارسی تینا</h1>
     <p class="lead">نقطهٔ شروع برای آشنایی با پنل فارسی، نقش‌ها، چرخه فروش و سناریوهای رایج — کوتاه، کاربردی و به‌روز.</p>
   </div>
 </section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container narrow prose">
+    <p>این صفحه فهرست <strong>مستندات نرم‌افزار ERP فارسی</strong> تینا است. هدف، آموزش سریع تیم بدون سندهای طولانی و نامفهوم است: از ورود به پنل تا چرخه فروش و نکات بومی مثل تقویم شمسی.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container feature-grid">
     <article class="panel feature-card">
@@ -22,24 +30,48 @@ description: راهنمای شروع نرم‌افزار ERP فارسی تینا
     <article class="panel feature-card">
       <div class="feature-icon">فروش</div>
       <h2>چرخه فروش</h2>
-      <p>از پیش‌فاکتور تا فاکتور: فیلدها، وضعیت‌ها، تایید و چاپ استاندارد.</p>
+      <p>از پیش‌فاکتور تا فاکتور: فیلدها، وضعیت‌ها، تایید، چاپ و اتصال به انبار.</p>
       <p><a href="{{ '/blog/sales-cycle/' | url }}">جزئیات چرخه ←</a></p>
     </article>
     <article class="panel feature-card">
-      <div class="feature-icon">دسترسی</div>
-      <h2>نقش و گردش‌کار</h2>
-      <p>تعیین نقش کاربران و وضعیت اسناد در همان محیط کاری ERP.</p>
-      <p><a href="{{ '/contact/' | url }}" data-open-contact>سوال دارید؟ ←</a></p>
+      <div class="feature-icon">شمسی</div>
+      <h2>تقویم شمسی</h2>
+      <p>چرا تاریخ جلالی در گزارش و اسناد حیاتی است و چطور در دمو چک کنید.</p>
+      <p><a href="{{ '/blog/erp-taghvim-shamsi/' | url }}">راهنمای شمسی ←</a></p>
+    </article>
+    <article class="panel feature-card">
+      <div class="feature-icon">هزینه</div>
+      <h2>سرور رایگان و TCO</h2>
+      <p>هزینه کل مالکیت، میزبانی رایگان شروع و مقایسه با پکیج‌های چندتکه.</p>
+      <p><a href="{{ '/blog/erp-farsi-server-rayegan/' | url }}">مقاله هزینه ←</a></p>
+    </article>
+    <article class="panel feature-card">
+      <div class="feature-icon">قابلیت</div>
+      <h2>مرجع ویژگی‌ها</h2>
+      <p>فروش، انبار، مالی، تولید، تامین، مکاتبات، نقش و گردش‌کار.</p>
+      <p><a href="{{ '/features/' | url }}">صفحه ویژگی‌ها ←</a></p>
+    </article>
+    <article class="panel feature-card">
+      <div class="feature-icon">آموزش</div>
+      <h2>آموزش با دمو</h2>
+      <p>برای سناریوی سفارشی، یک جلسه کوتاه روی محیط واقعی بهتر از سند طولانی است.</p>
+      <p><a href="{{ '/demo/' | url }}" data-open-contact>رزرو دمو ←</a></p>
     </article>
   </div>
   <div class="container prose" style="margin-top:2rem">
+    <h2>مسیر پیشنهادی مطالعه</h2>
+    <ol>
+      <li><a href="{{ '/blog/getting-started/' | url }}">شروع کار</a> — نقشه پنل و هفته اول</li>
+      <li><a href="{{ '/blog/sales-cycle/' | url }}">چرخه فروش</a> — پیش‌فاکتور تا فاکتور</li>
+      <li><a href="{{ '/blog/erp-taghvim-shamsi/' | url }}">تقویم شمسی</a> — بومی‌سازی واقعی</li>
+      <li><a href="{{ '/features/' | url }}">ویژگی‌ها</a> — تصویر کامل ماژول‌ها</li>
+    </ol>
     <h2>ساختار راهنما</h2>
     <ul>
       <li>مستندات فاز اول به‌صورت صفحات وب و پست‌های بلاگ منتشر می‌شود.</li>
-      <li>برای سناریوهای سفارشی و دیدن سرور رایگان روی محیط واقعی، یک جلسهٔ کوتاه دمو کافی است.</li>
       <li>به‌روزرسانی‌های محصول را در بخش <a href="{{ '/news/' | url }}">اخبار</a> دنبال کنید.</li>
-      <li>مرجع قابلیت‌ها: صفحهٔ <a href="{{ '/features/' | url }}">ویژگی‌ها</a>.</li>
+      <li>برای قیمت و سرور: <a href="{{ '/pricing/' | url }}">صفحه قیمت</a>.</li>
     </ul>
-    <p><a class="btn btn-primary" href="{{ '/demo/' | url }}" data-open-contact>رزرو دمو برای آموزش حضوری</a></p>
+    <p><a class="btn btn-primary" href="{{ '/demo/' | url }}" data-open-contact>رزرو دمو برای آموزش</a></p>
   </div>
 </section>

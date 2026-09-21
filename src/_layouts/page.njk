@@ -4,6 +4,7 @@ layout: base.njk
 {% if hero %}
 <section class="page-hero" aria-label="{{ title }}">
   <div class="container">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">{{ site.title }}</p>
     <h1>{{ title }}</h1>
     {% if description %}<p class="lead">{{ description }}</p>{% endif %}
@@ -12,6 +13,7 @@ layout: base.njk
 {% endif %}
 <section class="section">
   <div class="container{% if narrow %} narrow{% endif %} prose">
+    {% if not hero %}{% include "breadcrumbs.njk" %}{% endif %}
     {{ content | safe }}
   </div>
 </section>

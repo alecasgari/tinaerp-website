@@ -1,16 +1,24 @@
 ---
 layout: base.njk
 permalink: /demo/
-title: درخواست دمو تینا ERP
-description: دموی رایگان نرم‌افزار ERP فارسی تینا — فروش، انبار، مالی و سرور رایگان را بدون تعهد نصب ببینید.
+title: دمو رایگان نرم‌افزار ERP فارسی
+description: دمو رایگان نرم‌افزار ERP فارسی تینا — فروش، انبار، مالی، تقویم شمسی و سرور رایگان را بدون تعهد نصب روی محیط واقعی ببینید.
 ---
 <section class="page-hero">
   <div class="container">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">{{ site.title }}</p>
-    <h1>درخواست دموی ERP فارسی</h1>
-    <p class="lead">یک جلسهٔ کوتاه روی محیط واقعی — تفاوت یکپارچگی و سرور رایگان تینا با نرم‌افزارهای رقیب را بدون تعهد نصب ببینید.</p>
+    <h1>دمو رایگان نرم‌افزار ERP فارسی</h1>
+    <p class="lead">یک جلسهٔ کوتاه روی محیط واقعی — یکپارچگی فروش و انبار، تاریخ شمسی و سرور رایگان تینا را بدون تعهد نصب ببینید.</p>
   </div>
 </section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container narrow prose">
+    <p><strong>دمو رایگان نرم‌افزار ERP فارسی</strong> بهترین راه است تا قبل از تصمیم، ببینید تینا واقعاً جایگزین چند ابزار پراکنده می‌شود یا نه. جلسه کوتاه است، روی سناریوی شما پیش می‌رود و معمولاً شامل توضیح سرور رایگان و مدل استقرار هم هست.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container demo-grid">
     <article class="panel" style="padding:1.35rem 1.2rem">
@@ -21,6 +29,7 @@ description: دموی رایگان نرم‌افزار ERP فارسی تینا �
         <li>تاریخ شمسی، RTL و گردش‌کار تایید</li>
         <li>توضیح سرور رایگان و مدل استقرار</li>
         <li>مقایسهٔ هزینهٔ کل با پکیج‌های چندتکه رقبا</li>
+        <li>پاسخ به سوالات نقش‌ها و آموزش تیم</li>
       </ul>
       {% if site.demoUrl %}
       <p style="margin-top:1.25rem">
@@ -30,13 +39,40 @@ description: دموی رایگان نرم‌افزار ERP فارسی تینا �
     </article>
     <article class="panel" style="padding:1.35rem 1.2rem">
       <h2 class="section-title" style="font-size:1.15rem;margin-top:0">هماهنگی جلسه</h2>
-      <p>فرم را پر کنید؛ معمولاً ظرف یک روز کاری پاسخ می‌دهیم. جلسه کوتاه و بدون تعهد است.</p>
+      <p>فرم را پر کنید؛ معمولاً ظرف یک روز کاری پاسخ می‌دهیم. جلسه کوتاه و بدون تعهد است. می‌توانید سناریوی فروش یا انبار خودتان را از قبل بفرستید تا دمو هدفمندتر شود.</p>
       <p class="btn-row" style="margin-top:1.25rem;flex-wrap:wrap">
         <button type="button" class="btn btn-primary" data-open-contact>باز کردن فرم درخواست</button>
         <a class="btn btn-ghost" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">واتساپ {{ site.phone }}</a>
         <a class="btn btn-ghost" href="tel:{{ site.phoneTel }}">تماس {{ site.phone }}</a>
       </p>
     </article>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container narrow prose">
+    <h2>چطور برای دمو آماده شوید؟</h2>
+    <ol>
+      <li>یک فرایند روزمره را انتخاب کنید (مثلاً پیش‌فاکتور تا فاکتور).</li>
+      <li>۲–۳ درد واقعی تیم را یادداشت کنید (مغایرت موجودی، تاریخ، چاپ، …).</li>
+      <li>اگر الان چند نرم‌افزار دارید، بگویید کدام‌ها باید جایگزین شوند.</li>
+    </ol>
+
+    <h2>سوالات پرتکرار دمو</h2>
+    <h3>دمو چقدر طول می‌کشد؟</h3>
+    <p>معمولاً یک جلسه کوتاه کافی است؛ اگر دامنه بزرگ‌تر باشد همان جلسه اولویت‌ها را مشخص می‌کند.</p>
+    <h3>آیا باید چیزی نصب کنم؟</h3>
+    <p>خیر. دمو روی محیط آماده تینا برگزار می‌شود و تعهد نصب ندارد.</p>
+    <h3>بعد از دمو چه می‌شود؟</h3>
+    <p>اگر مناسب بود، مسیر استقرار و برآورد قیمت را شفاف می‌کنیم. جزئیات پلن در <a href="{{ '/pricing/' | url }}">صفحه قیمت</a> آمده است.</p>
+
+    <h2>قبل از دمو این‌ها را بخوانید</h2>
+    <ul>
+      <li><a href="{{ '/blog/erp-farsi-server-rayegan/' | url }}">نرم‌افزار ERP فارسی با سرور رایگان</a></li>
+      <li><a href="{{ '/blog/erp-taghvim-shamsi/' | url }}">ERP با تقویم شمسی</a></li>
+      <li><a href="{{ '/features/' | url }}">قابلیت‌های یکپارچه فروش، انبار و مالی</a></li>
+      <li><a href="{{ '/blog/getting-started/' | url }}">راهنمای شروع کار</a></li>
+    </ul>
   </div>
 </section>
 <script>

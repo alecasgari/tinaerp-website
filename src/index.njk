@@ -16,8 +16,8 @@ bodyClass: page-glass
     <div class="home-hero-copy reveal">
       <div class="home-hero-text">
         <img class="home-hero-logo" src="{{ '/assets/img/tina-logo-wide.png' | url }}" alt="لوگوی نرم‌افزار تینا ERP" width="160" height="38">
-        <h1 class="home-hero-title">نرم‌افزار ERP فارسی تینا</h1>
-        <p class="home-hero-lead">سیستم یکپارچه فروش، انبار، مالی، تولید و مکاتبات — RTL، تقویم شمسی، سریع‌تر از چند نرم‌افزار جدا و با سرور رایگان.</p>
+        <h1 class="home-hero-title">نرم‌افزار ERP فارسی با سرور رایگان</h1>
+        <p class="home-hero-lead">سیستم یکپارچه فروش، انبار، مالی، تولید و مکاتبات — RTL، تقویم شمسی، سریع‌تر از چند نرم‌افزار جدا و با میزبانی رایگان برای شروع.</p>
       </div>
       <div class="btn-row home-hero-actions">
         <a class="btn btn-primary" href="{{ '/demo/' | url }}" data-open-contact>
@@ -412,6 +412,33 @@ bodyClass: page-glass
   ]
 }
 </script>
+
+<section class="section home-blog-seo">
+  <div class="container">
+    <header class="home-head reveal">
+      <h2 class="section-title">از بلاگ ERP فارسی تینا</h2>
+      <p class="section-sub">راهنماهای کوتاه برای سرور رایگان، تقویم شمسی، شروع کار و چرخه فروش.</p>
+    </header>
+    <div class="post-list home-blog-grid">
+      {% for post in collections.blog %}
+      {% if loop.index0 < 4 %}
+      <article class="panel post-card reveal" style="--d:{{ loop.index0 * 40 }}ms">
+        {% if post.data.image %}
+        <a class="post-card-media" href="{{ post.url | url }}" tabindex="-1" aria-hidden="true">
+          <img src="{{ post.data.image | url }}" alt="" width="640" height="360" loading="lazy" decoding="async">
+        </a>
+        {% endif %}
+        <h3 class="post-card-title"><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+        {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <p class="btn-row btn-row-center" style="margin-top:1.25rem">
+      <a class="btn btn-ghost" href="{{ '/blog/' | url }}">مشاهده همه مقالات</a>
+    </p>
+  </div>
+</section>
 
 <section class="home-cta-band mesh-bg">
   <div class="container home-cta-inner reveal">

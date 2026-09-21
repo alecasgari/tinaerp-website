@@ -1,0 +1,24 @@
+{% if page.url != "/" %}
+<nav class="breadcrumbs" aria-label="مسیر صفحه">
+  <ol class="breadcrumbs-list">
+    <li class="breadcrumbs-item">
+      <a href="{{ '/' | url }}">خانه</a>
+    </li>
+    {% if crumbs %}
+      {% for c in crumbs %}
+        <li class="breadcrumbs-item">
+          {% if c.href and not loop.last %}
+            <a href="{{ c.href | url }}">{{ c.label }}</a>
+          {% else %}
+            <span aria-current="page">{{ c.label }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% else %}
+      <li class="breadcrumbs-item">
+        <span aria-current="page">{{ title }}</span>
+      </li>
+    {% endif %}
+  </ol>
+</nav>
+{% endif %}

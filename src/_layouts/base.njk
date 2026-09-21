@@ -14,7 +14,11 @@
   {% set fullTitle = (pageTitle + " · " + site.title) if pageTitle else ("تینا ERP | نرم‌افزار ERP فارسی یکپارچه با سرور رایگان") %}
   {% set pageDesc = description or site.description %}
   {% set canonicalUrl = site.url + page.url %}
-  {% set shareImage = site.url + site.ogImage %}
+  {% set ogImagePath = image or ogImage or site.ogImage %}
+  {% set shareImage = site.url + ogImagePath %}
+  {% set ogWidth = ogImageWidth or site.ogImageWidth %}
+  {% set ogHeight = ogImageHeight or site.ogImageHeight %}
+  {% set ogAltText = imageAlt or "تینا ERP — نرم‌افزار ERP فارسی یکپارچه" %}
   {% set robotsValue = robots if robots else "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
   {% if robots and (robots | contains("noindex")) %}
     {% set robotsValue = "noindex, nofollow" %}
@@ -56,9 +60,9 @@
   <meta property="og:image" content="{{ shareImage }}">
   <meta property="og:image:secure_url" content="{{ shareImage }}">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="{{ site.ogImageWidth }}">
-  <meta property="og:image:height" content="{{ site.ogImageHeight }}">
-  <meta property="og:image:alt" content="تینا ERP — نرم‌افزار ERP فارسی یکپارچه">
+  <meta property="og:image:width" content="{{ ogWidth }}">
+  <meta property="og:image:height" content="{{ ogHeight }}">
+  <meta property="og:image:alt" content="{{ ogAltText }}">
   {% if isBlogPost or isNewsPost %}
   <meta property="article:publisher" content="{{ site.url }}">
   {% if date %}<meta property="article:published_time" content="{{ date | isoDate }}">{% endif %}
@@ -68,7 +72,7 @@
   <meta name="twitter:title" content="{{ fullTitle }}">
   <meta name="twitter:description" content="{{ pageDesc }}">
   <meta name="twitter:image" content="{{ shareImage }}">
-  <meta name="twitter:image:alt" content="تینا ERP — نرم‌افزار ERP فارسی یکپارچه">
+  <meta name="twitter:image:alt" content="{{ ogAltText }}">
 
   <link rel="icon" href="{{ '/assets/img/favicon.png' | url }}" type="image/png" sizes="any">
   <link rel="apple-touch-icon" href="{{ '/assets/img/favicon.png' | url }}">
@@ -176,8 +180,8 @@
         "primaryImageOfPage": {
           "@type": "ImageObject",
           "url": "{{ shareImage }}",
-          "width": {{ site.ogImageWidth }},
-          "height": {{ site.ogImageHeight }}
+          "width": {{ ogWidth }},
+          "height": {{ ogHeight }}
         },
         "breadcrumb": { "@id": "{{ canonicalUrl }}#breadcrumb" }
       },
@@ -190,7 +194,31 @@
             "position": 1,
             "name": "خانه",
             "item": "{{ site.url }}/"
-          }{% if page.url != "/" %},
+          }{% if isBlogPost %},
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "بلاگ",
+            "item": "{{ site.url }}/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ title }}",
+            "item": "{{ canonicalUrl }}"
+          }{% elif isNewsPost %},
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "اخبار",
+            "item": "{{ site.url }}/news/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ title }}",
+            "item": "{{ canonicalUrl }}"
+          }{% elif page.url != "/" %},
           {
             "@type": "ListItem",
             "position": 2,

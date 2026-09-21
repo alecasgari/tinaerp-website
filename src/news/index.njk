@@ -1,27 +1,40 @@
 ---
 layout: base.njk
 permalink: /news/
-title: اخبار تینا ERP
-description: اخبار و به‌روزرسانی‌های نرم‌افزار ERP فارسی تینا — نسخه‌ها، تقویم شمسی و ویژگی‌های جدید.
+title: اخبار نرم‌افزار ERP فارسی تینا
+description: اخبار و به‌روزرسانی نرم‌افزار ERP فارسی تینا — تقویم شمسی، انتشار سایت، نسخه‌ها و ویژگی‌های جدید محصول.
 ---
 <section class="page-hero">
   <div class="container">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">{{ site.title }}</p>
-    <h1>اخبار و به‌روزرسانی‌های تینا ERP</h1>
-    <p class="lead">اعلان نسخه‌ها، بهبود محصول و رویدادهای مرتبط با نرم‌افزار ERP فارسی تینا.</p>
+    <h1>اخبار نرم‌افزار ERP فارسی تینا</h1>
+    <p class="lead">اعلان نسخه‌ها، بهبود محصول و رویدادهای مرتبط با تینا ERP — از پشتیبانی شمسی تا انتشار سایت و قابلیت‌های جدید.</p>
   </div>
 </section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container narrow prose">
+    <p>اینجا آخرین خبرهای محصول را می‌خوانید. برای آموزش و راهنماهای عمیق‌تر به <a href="{{ '/blog/' | url }}">بلاگ ERP فارسی</a> سر بزنید.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container post-list">
-    {% for item in collections.news %}
+    {% for post in collections.news %}
     <article class="panel post-card">
-      <p class="post-meta">{{ item.date | readableDate }}</p>
-      <h2><a href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
-      {% if item.data.summary %}<p>{{ item.data.summary }}</p>{% endif %}
-      <a class="post-more" href="{{ item.url | url }}">ادامه ←</a>
+      {% if post.data.image %}
+      <a class="post-card-media" href="{{ post.url | url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ post.data.image | url }}" alt="" width="640" height="360" loading="lazy" decoding="async">
+      </a>
+      {% endif %}
+      <p class="post-meta">{{ post.date | readableDate }}</p>
+      <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+      {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+      <a class="post-more" href="{{ post.url | url }}">ادامه مطلب ←</a>
     </article>
     {% else %}
-    <p class="section-sub">خبری منتشر نشده است.</p>
+    <p class="section-sub">هنوز خبری منتشر نشده است.</p>
     {% endfor %}
   </div>
 </section>

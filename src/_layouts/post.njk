@@ -1,14 +1,32 @@
 ---
 layout: base.njk
 ---
+{% set crumbs = [
+  { label: "بلاگ", href: "/blog/" },
+  { label: title }
+] %}
 <article class="section post" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="container narrow">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">بلاگ · {{ site.title }}</p>
     <h1 class="post-title" itemprop="headline">{{ title }}</h1>
     <p class="post-meta">
-      <time itemprop="datePublished">{{ date | readableDate }}</time>
+      <time itemprop="datePublished" datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
       {% if summary %} · <span itemprop="description">{{ summary }}</span>{% endif %}
     </p>
+    {% if image %}
+    <figure class="post-feature">
+      <img
+        src="{{ image | url }}"
+        width="{{ ogImageWidth or site.ogImageWidth }}"
+        height="{{ ogImageHeight or site.ogImageHeight }}"
+        alt="{{ imageAlt or title }}"
+        itemprop="image"
+        loading="eager"
+        decoding="async"
+      >
+    </figure>
+    {% endif %}
     <div class="prose post-body" itemprop="articleBody">
       {{ content | safe }}
     </div>

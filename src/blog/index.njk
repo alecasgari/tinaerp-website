@@ -1,20 +1,33 @@
 ---
 layout: base.njk
 permalink: /blog/
-title: بلاگ تینا ERP
-description: راهنما و مقالات نرم‌افزار ERP فارسی تینا — شروع کار، چرخه فروش و نکات عملیاتی برای تیم‌های ایرانی.
+title: بلاگ نرم‌افزار ERP فارسی
+description: مقالات نرم‌افزار ERP فارسی تینا — سرور رایگان، تقویم شمسی، شروع کار، چرخه فروش و راهنمای تیم‌های ایرانی.
 ---
 <section class="page-hero">
   <div class="container">
+    {% include "breadcrumbs.njk" %}
     <p class="eyebrow">{{ site.title }}</p>
     <h1>بلاگ نرم‌افزار ERP فارسی</h1>
-    <p class="lead">نکات کاربردی، راهنمای شروع و سناریوهای واقعی فروش، انبار و مالی با تینا ERP.</p>
+    <p class="lead">راهنمای سرور رایگان، تقویم شمسی، شروع کار و سناریوهای فروش، انبار و مالی با تینا ERP — برای تصمیم سریع‌تر و راه‌اندازی کم‌اصطکاک.</p>
   </div>
 </section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container narrow prose">
+    <p>در این بلاگ درباره <strong>نرم‌افزار ERP فارسی</strong>، هزینه کل مالکیت، بومی‌سازی شمسی و مسیرهای عملیاتی مثل پیش‌فاکتور تا فاکتور می‌نویسیم. هدف محتوا کمک به انتخاب و استقرار است، نه شعار تبلیغاتی.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container post-list">
     {% for post in collections.blog %}
     <article class="panel post-card">
+      {% if post.data.image %}
+      <a class="post-card-media" href="{{ post.url | url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ post.data.image | url }}" alt="" width="640" height="360" loading="lazy" decoding="async">
+      </a>
+      {% endif %}
       <p class="post-meta">{{ post.date | readableDate }}</p>
       <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
       {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
