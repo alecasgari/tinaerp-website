@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tina ERP//SEO Week 2//FA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Asia/Karachi
+X-LIC-LOCATION:Asia/Karachi
+BEGIN:STANDARD
+TZOFFSETFROM:+0500
+TZOFFSETTO:+0500
+TZNAME:PKT
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:tina-erp-seo-week2-2026-09-28@tinaerp.ir
+DTSTAMP:20260921T044500Z
+DTSTART;TZID=Asia/Karachi:20260928T094500
+DTEND;TZID=Asia/Karachi:20260928T104500
+SUMMARY:تینا ERP — شروع هفته ۲ سئو (محتوای مقایسه)
+DESCRIPTION:طبق استراتژی سئو تینا ERP:\n1) نوشتن مقاله «جایگزین سپیدار برای فروش و انبار»\n2) نوشتن مقاله «مقایسه ERP یکپارچه در برابر چند نرم‌افزار جدا»\n3) تقویت صفحه /demo/ در صورت نیاز\n4) لینک داخلی به ویژگی‌ها و دمو\n\nدر Cursor بگو: هفته ۲ سئو را شروع کن
+LOCATION:https://tinaerp.ir
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:یادآوری: هفته ۲ سئو تینا ERP
+END:VALARM
+END:VEVENT
+END:VCALENDAR
