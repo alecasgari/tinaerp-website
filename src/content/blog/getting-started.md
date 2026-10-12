@@ -1,6 +1,6 @@
 ---
 layout: post.njk
-title: راهنمای شروع کار با نرم‌افزار ERP فارسی؛ از ورود تا اولین سند
+title: شروع کار با نرم‌افزار ERP فارسی
 summary: قدم‌به‌قدم ورود به پنل، ناوبری RTL، جستجو، نقش‌ها و ثبت اولین سند در تینا ERP.
 date: 2026-03-01
 permalink: /blog/getting-started/

@@ -44,7 +44,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="canonical" href="{{ canonicalUrl }}">
   <link rel="alternate" hreflang="fa-IR" href="{{ canonicalUrl }}">
-  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+  {% if page.url == "/" %}
+  <link rel="alternate" hreflang="x-default" href="{{ canonicalUrl }}">
+  {% endif %}
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml">
   <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
   <link rel="author" href="{{ site.url }}/llms.txt" title="llms.txt">
@@ -121,8 +123,7 @@
             "availableLanguage": ["Persian", "fa"],
             "areaServed": "IR"
           }
-        ],
-        "sameAs": []
+        ]
       },
       {
         "@type": "WebSite",
@@ -147,13 +148,6 @@
         "url": "{{ site.url }}",
         "image": "{{ shareImage }}",
         "screenshot": "{{ shareImage }}",
-        "offers": {
-          "@type": "Offer",
-          "url": "{{ site.url }}/pricing/",
-          "priceCurrency": "IRR",
-          "availability": "https://schema.org/InStock",
-          "description": "استقرار با سرور رایگان — جزئیات در صفحه قیمت"
-        },
         "featureList": [
           "فروش و CRM",
           "انبار و موجودی",
