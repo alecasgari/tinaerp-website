@@ -16,8 +16,15 @@
   {% set canonicalUrl = site.url + page.url %}
   {% set ogImagePath = image or ogImage or site.ogImage %}
   {% set shareImage = site.url + ogImagePath %}
-  {% set ogWidth = ogImageWidth or site.ogImageWidth %}
-  {% set ogHeight = ogImageHeight or site.ogImageHeight %}
+  {% set ogMeta = ogImagePath | imageMeta %}
+  {% set logoMeta = "/assets/img/tina-logo-wide.png" | imageMeta %}
+  {% set logoUrl = site.url + "/assets/img/tina-logo-wide.png" %}
+  {% set published = (date or modified) | isoDateTime %}
+  {% set modifiedStamp = (modified or date) | isoDateTime %}
+  {% set wordCount = content | postWordCount %}
+  {% set ogWidth = ogMeta.width or ogImageWidth or site.ogImageWidth %}
+  {% set ogHeight = ogMeta.height or ogImageHeight or site.ogImageHeight %}
+  {% set ogMime = ogMeta.mime or "image/jpeg" %}
   {% set ogAltText = imageAlt or "تینا ERP — نرم‌افزار ERP فارسی یکپارچه" %}
   {% set robotsValue = robots if robots else "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
   {% if robots and (robots | contains("noindex")) %}
@@ -61,13 +68,14 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:image" content="{{ shareImage }}">
   <meta property="og:image:secure_url" content="{{ shareImage }}">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:type" content="{{ ogMime }}">
   <meta property="og:image:width" content="{{ ogWidth }}">
   <meta property="og:image:height" content="{{ ogHeight }}">
   <meta property="og:image:alt" content="{{ ogAltText }}">
   {% if isBlogPost or isNewsPost %}
   <meta property="article:publisher" content="{{ site.url }}">
-  {% if date %}<meta property="article:published_time" content="{{ date | isoDate }}">{% endif %}
+  {% if published %}<meta property="article:published_time" content="{{ published }}">{% endif %}
+  {% if modifiedStamp %}<meta property="article:modified_time" content="{{ modifiedStamp }}">{% endif %}
   {% endif %}
 
   <meta name="twitter:card" content="summary_large_image">
@@ -94,11 +102,12 @@
         "url": "{{ site.url }}",
         "logo": {
           "@type": "ImageObject",
-          "url": "{{ site.url }}/assets/img/tina-logo-wide.png",
-          "width": 512,
-          "height": 128
+          "@id": "{{ site.url }}/#logo",
+          "url": "{{ logoUrl }}",
+          "width": {{ logoMeta.width }},
+          "height": {{ logoMeta.height }}
         },
-        "image": "{{ shareImage }}",
+        "image": { "@id": "{{ site.url }}/#logo" },
         "email": "{{ site.email }}",
         "telephone": "{{ site.phoneTel }}",
         "description": "{{ site.description }}",
@@ -146,8 +155,8 @@
         "inLanguage": "fa-IR",
         "description": "{{ site.description }}",
         "url": "{{ site.url }}",
-        "image": "{{ shareImage }}",
-        "screenshot": "{{ shareImage }}",
+        "image": { "@id": "{{ site.url }}/#logo" },
+        "screenshot": { "@id": "{{ site.url }}/#logo" },
         "featureList": [
           "فروش و CRM",
           "انبار و موجودی",
@@ -220,26 +229,73 @@
             "item": "{{ canonicalUrl }}"
           }{% endif %}
         ]
-      }{% if isBlogPost or isNewsPost %},
+      }{% if isBlogPost %},
       {
-        "@type": "{% if isNewsPost %}NewsArticle{% else %}BlogPosting{% endif %}",
+        "@type": "Organization",
+        "@id": "{{ site.url }}/about/#editorial",
+        "name": "تیم تولید محتوای تینا ERP",
+        "url": "{{ site.url }}/about/"
+      },
+      {
+        "@type": "BlogPosting",
         "@id": "{{ canonicalUrl }}#article",
-        "headline": "{{ title }}",
-        "description": "{{ pageDesc }}",
-        "image": "{{ shareImage }}",
-        "datePublished": "{{ date | isoDate }}",
-        "dateModified": "{{ date | isoDate }}",
-        "author": {
-          "@type": "Organization",
-          "@id": "{{ site.url }}/#organization"
+        "headline": {{ title | jsonString | safe }},
+        "description": {{ pageDesc | jsonString | safe }},
+        "image": {
+          "@type": "ImageObject",
+          "@id": "{{ canonicalUrl }}#primaryimage",
+          "url": "{{ shareImage }}",
+          "width": {{ ogWidth }},
+          "height": {{ ogHeight }}
         },
-        "publisher": {
-          "@type": "Organization",
-          "@id": "{{ site.url }}/#organization"
-        },
-        "mainEntityOfPage": { "@id": "{{ canonicalUrl }}#webpage" },
+        "datePublished": "{{ published }}",
+        "dateModified": "{{ modifiedStamp }}",
         "inLanguage": "fa-IR",
+        "wordCount": {{ wordCount }},
+        {% if keywords %}"keywords": {{ keywords | jsonString | safe }},
+        {% endif %}"author": { "@id": "{{ site.url }}/about/#editorial" },
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "mainEntityOfPage": { "@id": "{{ canonicalUrl }}#webpage" },
         "isPartOf": { "@id": "{{ site.url }}/#website" }
+      }{% elif isNewsPost %},
+      {
+        "@type": "NewsArticle",
+        "@id": "{{ canonicalUrl }}#article",
+        "headline": {{ title | jsonString | safe }},
+        "description": {{ pageDesc | jsonString | safe }},
+        "image": {
+          "@type": "ImageObject",
+          "url": "{{ shareImage }}",
+          "width": {{ ogWidth }},
+          "height": {{ ogHeight }}
+        },
+        "datePublished": "{{ published }}",
+        "dateModified": "{{ modifiedStamp }}",
+        "inLanguage": "fa-IR",
+        "author": { "@id": "{{ site.url }}/#organization" },
+        "publisher": { "@id": "{{ site.url }}/#organization" },
+        "mainEntityOfPage": { "@id": "{{ canonicalUrl }}#webpage" },
+        "isPartOf": { "@id": "{{ site.url }}/#website" }
+      }{% endif %}
+      {% if faqs and faqs.length %},
+      {
+        "@type": "FAQPage",
+        "@id": "{{ canonicalUrl }}#faq",
+        "url": "{{ canonicalUrl }}",
+        "inLanguage": "fa-IR",
+        "isPartOf": { "@id": "{{ canonicalUrl }}#webpage" },
+        "mainEntity": [
+          {% for item in faqs %}
+          {
+            "@type": "Question",
+            "name": {{ item.q | jsonString | safe }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ item.a | stripTags | jsonString | safe }}
+            }
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
       }{% endif %}
     ]
   }

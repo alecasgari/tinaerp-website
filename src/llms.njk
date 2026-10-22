@@ -28,23 +28,12 @@ Phone/WhatsApp: {{ site.phone }}
 - News: {{ site.url }}/news/
 - FAQ: {{ site.url }}/#faq
 
-## Key articles
-- One warehouse or several: {{ site.url }}/blog/yek-anbar-ya-chand-anbar/
-- Reorder point for a small trading company: {{ site.url }}/blog/noghte-sefaresh-mojoodi/
-- Warehouse voucher from invoice: {{ site.url }}/blog/havale-anbar-az-faktor/
-- Inventory discrepancy: {{ site.url }}/blog/moghayerat-mojoodi-anbar/
-- Total cost of ownership: {{ site.url }}/blog/hazine-kol-malekiyat-erp/
-- ERP setup for a small Iranian company: {{ site.url }}/blog/rahandazi-erp-sherkat-kuchak/
-- Persian ERP with free server: {{ site.url }}/blog/erp-farsi-server-rayegan/
-- ERP with Jalali (Shamsi) calendar: {{ site.url }}/blog/erp-taghvim-shamsi/
-- Integrated ERP vs separate tools: {{ site.url }}/blog/moghayese-yekparche-vs-jazire/
-- Sales & inventory alternative to accounting-only software: {{ site.url }}/blog/jaygozin-sepidar-forush-anbar/
-- Getting started: {{ site.url }}/blog/getting-started/
-- Sales cycle (quote to invoice): {{ site.url }}/blog/sales-cycle/
-
-## Modules
-Sales/CRM, Inventory/Warehouse, Accounting/Finance, Manufacturing, Procurement/Supply, Correspondence, Roles/Workflow, Brand printing, Jalali dates
+## Blog
+{% for post in collections.blog %}
+- {{ post.data.title }}: {{ site.url }}{{ post.url }} — {{ post.data.summary }}
+{% endfor %}
 
 ## Optional
+- Full text index: {{ site.url }}/llms-full.txt
 - Sitemap: {{ site.url }}/sitemap.xml
 - Robots: {{ site.url }}/robots.txt

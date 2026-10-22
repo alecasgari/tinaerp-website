@@ -1265,7 +1265,8 @@ body.c-modal-open {
   font-weight: 700;
   color: var(--g-accent-2);
 }
-.c-modal-top h2 {
+.c-modal-top h2,
+.c-modal-top p#contact-modal-title {
   margin: 0;
   font-size: 1.15rem;
   color: var(--g-ink);

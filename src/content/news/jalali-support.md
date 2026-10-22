@@ -5,7 +5,7 @@ summary: تاریخ جلالی در فروش، انبار و مالی — تجر
 date: 2026-03-18
 permalink: /news/jalali-support/
 description: خبر پشتیبانی تقویم شمسی در تینا ERP — تاریخ جلالی در فروش، انبار و مالی برای تیم‌های فارسی‌زبان بدون تبدیل دستی.
-image: /assets/img/blog/og-taghvim-shamsi.png
+image: /assets/img/blog/og-taghvim-shamsi.jpg
 imageAlt: تینا ERP — پشتیبانی تقویم شمسی در نرم‌افزار ERP فارسی
 ogImageWidth: 1280
 ogImageHeight: 720

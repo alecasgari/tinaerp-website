@@ -30,6 +30,15 @@ layout: base.njk
     <div class="prose post-body" itemprop="articleBody">
       {{ content | safe }}
     </div>
+    {% if faqs and faqs.length %}
+    <section class="prose post-faq" aria-label="سوالات پرتکرار">
+      <h2>سوالات پرتکرار</h2>
+      {% for item in faqs %}
+      <h3>{{ item.q }}</h3>
+      <p>{{ item.a | safe }}</p>
+      {% endfor %}
+    </section>
+    {% endif %}
     <p class="post-back"><a href="{{ '/blog/' | url }}">← بازگشت به بلاگ</a></p>
   </div>
 </article>

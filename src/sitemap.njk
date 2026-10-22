@@ -7,8 +7,8 @@ eleventyExcludeFromCollections: true
 {%- for p in collections.sitemap %}
   <url>
     <loc>{{ site.url }}{{ p.url }}</loc>
-{%- if p.date %}
-    <lastmod>{{ p.date | isoDate }}</lastmod>
+{%- if p.data.modified or p.date %}
+    <lastmod>{{ (p.data.modified or p.date) | isoDateTime }}</lastmod>
 {%- endif %}
     <changefreq>{{ p.url | sitemapChangefreq }}</changefreq>
     <priority>{{ p.url | sitemapPriority }}</priority>

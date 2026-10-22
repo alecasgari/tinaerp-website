@@ -1,0 +1,22 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# تینا ERP — متن راهنمای مقاله‌ها
+
+> خلاصه، توضیح و پرسش‌های همان مقاله‌های منتشرشده در {{ site.url }}/blog/ . این فایل از دادهٔ خود پست‌ها ساخته می‌شود.
+
+{% for post in collections.blog %}
+## {{ post.data.title }}
+URL: {{ site.url }}{{ post.url }}
+Date: {{ post.date | isoDateTime }}
+{% if post.data.keywords %}Query: {{ post.data.keywords }}
+{% endif %}Summary: {{ post.data.summary }}
+Description: {{ post.data.description }}
+{% if post.data.faqs %}
+{% for item in post.data.faqs %}
+Q: {{ item.q }}
+A: {{ item.a | stripTags }}
+{% endfor %}
+{% endif %}
+{% endfor %}
