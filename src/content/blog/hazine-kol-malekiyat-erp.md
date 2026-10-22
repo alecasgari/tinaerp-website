@@ -9,7 +9,7 @@ image: /assets/img/blog/og-tco.jpg
 imageAlt: اینفوگرافیک هزینه کل مالکیت ERP در تینا — لایسنس، استقرار، آموزش، مهاجرت، سرور و پشتیبانی
 ogImageWidth: 1280
 ogImageHeight: 720
-keywords: "قیمت لایسنس هزینه کل مالکیت نیست."
+keywords: "هزینه کل مالکیت"
 modified: 2026-10-22
 faqs:
   - q: "هزینه کل مالکیت ERP شامل چیست؟"

@@ -156,7 +156,6 @@
         "description": "{{ site.description }}",
         "url": "{{ site.url }}",
         "image": { "@id": "{{ site.url }}/#logo" },
-        "screenshot": { "@id": "{{ site.url }}/#logo" },
         "featureList": [
           "فروش و CRM",
           "انبار و موجودی",
@@ -229,13 +228,13 @@
             "item": "{{ canonicalUrl }}"
           }{% endif %}
         ]
-      }{% if isBlogPost %},
+      }{% if isBlogPost or page.url == "/about/" %},
       {
         "@type": "Organization",
         "@id": "{{ site.url }}/about/#editorial",
         "name": "تیم تولید محتوای تینا ERP",
         "url": "{{ site.url }}/about/"
-      },
+      }{% endif %}{% if isBlogPost %},
       {
         "@type": "BlogPosting",
         "@id": "{{ canonicalUrl }}#article",

@@ -9,7 +9,7 @@ image: /assets/img/blog/og-yekparche-vs-jazire.jpg
 imageAlt: مقایسه ERP یکپارچه با چند نرم‌افزار جدا — تینا ERP
 ogImageWidth: 1280
 ogImageHeight: 720
-keywords: "ERP یکپارچه بهتر است یا ادامه با چند نرم‌افزار جدا؟"
+keywords: "مقایسهٔ یکپارچه"
 modified: 2026-10-22
 faqs:
   - q: "ERP یکپارچه برای شرکت کوچک گران نیست؟"

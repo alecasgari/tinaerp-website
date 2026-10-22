@@ -55,6 +55,17 @@ function isoDateTimeIran(dateObj) {
   if (!dateObj) return "";
   const d = new Date(dateObj);
   if (Number.isNaN(d.getTime())) return "";
+  const dateOnly =
+    d.getUTCHours() === 0 &&
+    d.getUTCMinutes() === 0 &&
+    d.getUTCSeconds() === 0 &&
+    d.getUTCMilliseconds() === 0;
+  if (dateOnly) {
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(d.getUTCDate()).padStart(2, "0");
+    return `${y}-${m}-${day}T00:00:00+03:30`;
+  }
   const fmt = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Tehran",
     year: "numeric",
