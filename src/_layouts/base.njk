@@ -11,7 +11,7 @@
   })(window,document,'script','dataLayer','{{ site.gtmId }}');</script>
   <!-- End Google Tag Manager -->
   {% set pageTitle = title if (title and title != site.title) else none %}
-  {% set fullTitle = (pageTitle + " · " + site.title) if pageTitle else ("تینا ERP | نرم‌افزار ERP فارسی یکپارچه با سرور رایگان") %}
+  {% set fullTitle = (pageTitle + " · " + site.title) if pageTitle else ("تینا ERP | نرم‌افزار ERP فارسی") %}
   {% set pageDesc = description or site.description %}
   {% set canonicalUrl = site.url + page.url %}
   {% set ogImagePath = image or ogImage or site.ogImage %}
@@ -28,7 +28,7 @@
   {% set ogAltText = imageAlt or "تینا ERP — نرم‌افزار ERP فارسی یکپارچه" %}
   {% set robotsValue = robots if robots else "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" %}
   {% if robots and (robots | contains("noindex")) %}
-    {% set robotsValue = "noindex, nofollow" %}
+    {% set robotsValue = "noindex,follow" %}
   {% endif %}
   {% set isBlogPost = page.url and (page.url | startsWith("/blog/")) and page.url != "/blog/" %}
   {% set isNewsPost = page.url and (page.url | startsWith("/news/")) and page.url != "/news/" %}
@@ -51,9 +51,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="canonical" href="{{ canonicalUrl }}">
   <link rel="alternate" hreflang="fa-IR" href="{{ canonicalUrl }}">
-  {% if page.url == "/" %}
   <link rel="alternate" hreflang="x-default" href="{{ canonicalUrl }}">
-  {% endif %}
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml">
   <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
   <link rel="author" href="{{ site.url }}/llms.txt" title="llms.txt">
@@ -309,7 +307,7 @@
     })();
   </script>
 </head>
-<body class="page-glass{% if bodyClass %} {{ bodyClass }}{% endif %}">
+<body class="page-glass{% if bodyClass %} {{ bodyClass }}{% endif %}" data-demo-url="{{ site.demoUrl }}">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtmId }}"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

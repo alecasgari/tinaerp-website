@@ -132,6 +132,18 @@
     }
   }
 
+  const demoUrl = document.body.dataset.demoUrl || "";
+  if (demoUrl) {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      const href = a.href || "";
+      if (!href.startsWith(demoUrl)) return;
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({ event: "demo_click", link_url: href, page_path: location.pathname });
+    });
+  }
+
   // FAQ: only one open at a time
   const faq = document.querySelector(".faq-list");
   if (faq) {

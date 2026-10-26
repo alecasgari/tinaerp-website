@@ -245,6 +245,22 @@
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("webhook_failed");
+      await new Promise((resolve) => {
+        let settled = false;
+        const done = () => {
+          if (settled) return;
+          settled = true;
+          resolve();
+        };
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+          event: "generate_lead",
+          form_location: location.pathname,
+          eventCallback: done,
+          eventTimeout: 1000,
+        });
+        setTimeout(done, 1000);
+      });
       window.location.href = thanksUrl;
     } catch (err) {
       setSubmitting(false);
