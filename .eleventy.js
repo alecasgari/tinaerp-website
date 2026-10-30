@@ -84,6 +84,7 @@ function isoDateTimeIran(dateObj) {
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/703baeb9e91bd9016e3ee21c40255c59.txt");
 
   eleventyConfig.addCollection("blog", (collectionApi) =>
     collectionApi

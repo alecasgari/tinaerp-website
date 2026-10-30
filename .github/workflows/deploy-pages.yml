@@ -38,3 +38,13 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping IndexNow (Bing, Yandex, ...)
+        run: |
+          sleep 30
+          URLS=$(curl -s https://tinaerp.ir/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' | head -1000 | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          curl -s -o /dev/null -w "IndexNow HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "{\"host\":\"tinaerp.ir\",\"key\":\"703baeb9e91bd9016e3ee21c40255c59\",\"keyLocation\":\"https://tinaerp.ir/703baeb9e91bd9016e3ee21c40255c59.txt\",\"urlList\":$URLS}" || true
