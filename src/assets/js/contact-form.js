@@ -134,10 +134,7 @@
       ok = false;
     }
     const msg = String(data.message || "").trim();
-    if (!msg) {
-      showError("message", "متن درخواست را بنویسید.");
-      ok = false;
-    } else if (msg.length > 300) {
+    if (msg.length > 300) {
       showError("message", "حداکثر ۳۰۰ کاراکتر مجاز است.");
       ok = false;
     }
