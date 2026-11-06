@@ -92,6 +92,13 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date)
   );
 
+  // Editorial guides include comparison pages without putting them in the blog listing.
+  eleventyConfig.addCollection("guides", (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob(["src/content/blog/*.md", "src/content/alternatives/*.md"])
+      .sort((a, b) => b.date - a.date)
+  );
+
   eleventyConfig.addCollection("news", (collectionApi) =>
     collectionApi
       .getFilteredByGlob("src/content/news/*.md")
@@ -146,12 +153,13 @@ module.exports = function (eleventyConfig) {
     if (url === "/") return "1.0";
     if (["/features/", "/pricing/", "/demo/"].includes(url)) return "0.9";
     if (["/contact/", "/docs/", "/about/"].includes(url)) return "0.8";
+    if ((url || "").startsWith("/alternatives/")) return "0.8";
     if ((url || "").startsWith("/blog/") || (url || "").startsWith("/news/")) return "0.7";
     return "0.6";
   });
 
   eleventyConfig.addFilter("sitemapChangefreq", (url) => {
-    if (url === "/") return "weekly";
+    if (url === "/" || (url || "").startsWith("/alternatives/")) return "weekly";
     if ((url || "").startsWith("/blog/") || (url || "").startsWith("/news/")) return "weekly";
     return "monthly";
   });

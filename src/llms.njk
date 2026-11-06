@@ -28,8 +28,8 @@ Phone/WhatsApp: {{ site.phone }}
 - News: {{ site.url }}/news/
 - FAQ: {{ site.url }}/#faq
 
-## Blog
-{% for post in collections.blog %}
+## Articles and comparison guides
+{% for post in collections.guides %}
 - {{ post.data.title }}: {{ site.url }}{{ post.url }} — {{ post.data.summary }}
 {% endfor %}
 

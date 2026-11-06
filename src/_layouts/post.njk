@@ -1,14 +1,19 @@
 ---
 layout: base.njk
 ---
+{% set isComparison = page.url | startsWith("/alternatives/") %}
+{% if isComparison %}
+{% set crumbs = [{ label: title }] %}
+{% else %}
 {% set crumbs = [
   { label: "بلاگ", href: "/blog/" },
   { label: title }
 ] %}
+{% endif %}
 <article class="section post" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="container narrow">
     {% include "breadcrumbs.njk" %}
-    <p class="eyebrow">بلاگ · {{ site.title }}</p>
+    <p class="eyebrow">{% if isComparison %}راهنمای مقایسه{% else %}بلاگ{% endif %} · {{ site.title }}</p>
     <h1 class="post-title" itemprop="headline">{{ title }}</h1>
     <p class="post-meta">
       <time itemprop="datePublished" datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>

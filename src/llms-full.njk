@@ -4,9 +4,9 @@ eleventyExcludeFromCollections: true
 ---
 # تینا ERP — متن راهنمای مقاله‌ها
 
-> خلاصه، توضیح و پرسش‌های همان مقاله‌های منتشرشده در {{ site.url }}/blog/ . این فایل از دادهٔ خود پست‌ها ساخته می‌شود.
+> خلاصه، توضیح و پرسش‌های مقاله‌های بلاگ و راهنماهای مقایسه منتشرشده در {{ site.url }} . این فایل از دادهٔ خود پست‌ها ساخته می‌شود.
 
-{% for post in collections.blog %}
+{% for post in collections.guides %}
 ## {{ post.data.title }}
 URL: {{ site.url }}{{ post.url }}
 Date: {{ post.date | isoDateTime }}

@@ -31,6 +31,8 @@
     {% set robotsValue = "noindex,follow" %}
   {% endif %}
   {% set isBlogPost = page.url and (page.url | startsWith("/blog/")) and page.url != "/blog/" %}
+  {% set isAlternativePost = page.url and (page.url | startsWith("/alternatives/")) %}
+  {% set isEditorialPost = isBlogPost or isAlternativePost %}
   {% set isNewsPost = page.url and (page.url | startsWith("/news/")) and page.url != "/news/" %}
   <title>{{ fullTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
@@ -58,7 +60,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-  <meta property="og:type" content="{% if ogType %}{{ ogType }}{% elif isBlogPost or isNewsPost %}article{% else %}website{% endif %}">
+  <meta property="og:type" content="{% if ogType %}{{ ogType }}{% elif isEditorialPost or isNewsPost %}article{% else %}website{% endif %}">
   <meta property="og:locale" content="fa_IR">
   <meta property="og:title" content="{{ fullTitle }}">
   <meta property="og:description" content="{{ pageDesc }}">
@@ -70,7 +72,7 @@
   <meta property="og:image:width" content="{{ ogWidth }}">
   <meta property="og:image:height" content="{{ ogHeight }}">
   <meta property="og:image:alt" content="{{ ogAltText }}">
-  {% if isBlogPost or isNewsPost %}
+  {% if isEditorialPost or isNewsPost %}
   <meta property="article:publisher" content="{{ site.url }}">
   {% if published %}<meta property="article:published_time" content="{{ published }}">{% endif %}
   {% if modifiedStamp %}<meta property="article:modified_time" content="{{ modifiedStamp }}">{% endif %}
@@ -226,13 +228,13 @@
             "item": "{{ canonicalUrl }}"
           }{% endif %}
         ]
-      }{% if isBlogPost or page.url == "/about/" %},
+      }{% if isEditorialPost or page.url == "/about/" %},
       {
         "@type": "Organization",
         "@id": "{{ site.url }}/about/#editorial",
         "name": "تیم تولید محتوای تینا ERP",
         "url": "{{ site.url }}/about/"
-      }{% endif %}{% if isBlogPost %},
+      }{% endif %}{% if isEditorialPost %},
       {
         "@type": "BlogPosting",
         "@id": "{{ canonicalUrl }}#article",
