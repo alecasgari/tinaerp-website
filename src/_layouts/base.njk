@@ -167,6 +167,27 @@
           "RTL",
           "سرور رایگان"
         ],
+        "offers": {
+          "@type": "Offer",
+          "@id": "{{ site.url }}/pricing/#offer",
+          "name": "اشتراک سالانه تینا ERP {{ site.pricing.year }}",
+          "price": "{{ site.pricing.priceIRR }}",
+          "priceCurrency": "{{ site.pricing.currency }}",
+          "description": "{{ site.pricing.amount }} سالانه برای سال {{ site.pricing.year }}، با سرور رایگان",
+          "url": "{{ site.url }}/pricing/",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@id": "{{ site.url }}/#organization" },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "{{ site.pricing.priceIRR }}",
+            "priceCurrency": "{{ site.pricing.currency }}",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": 1,
+              "unitCode": "ANN"
+            }
+          }
+        },
         "publisher": { "@id": "{{ site.url }}/#organization" },
         "provider": { "@id": "{{ site.url }}/#organization" }
       },

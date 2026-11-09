@@ -1501,3 +1501,13 @@ body.c-modal-open {
   15% { opacity: 1; }
   100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(220deg); }
 }
+
+/* Pricing: single annual offer */
+.page-glass .price-grid.price-grid-single {
+  grid-template-columns: minmax(0, 680px);
+  justify-content: center;
+}
+.page-glass .price-card .price-note {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+}

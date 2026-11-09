@@ -18,6 +18,14 @@
   "ogImageWidth": 1536,
   "ogImageHeight": 1024,
   "themeColor": "#2490ef",
+  "pricing": {
+    "year": "۱۴۰۵",
+    "amount": "۶۰ میلیون تومان",
+    "period": "یک سال",
+    "label": "۶۰ میلیون تومان برای یک سال، با سرور رایگان",
+    "priceIRR": "600000000",
+    "currency": "IRR"
+  },
   "nav": [
     { "label": "خانه", "href": "/" },
     { "label": "ویژگی‌ها", "href": "/features/" },
