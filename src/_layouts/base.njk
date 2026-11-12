@@ -31,7 +31,7 @@
     {% set robotsValue = "noindex,follow" %}
   {% endif %}
   {% set isBlogPost = page.url and (page.url | startsWith("/blog/")) and page.url != "/blog/" %}
-  {% set isAlternativePost = page.url and (page.url | startsWith("/alternatives/")) %}
+  {% set isAlternativePost = page.url and ((page.url | startsWith("/alternatives/")) or comparison) %}
   {% set isEditorialPost = isBlogPost or isAlternativePost %}
   {% set isNewsPost = page.url and (page.url | startsWith("/news/")) and page.url != "/news/" %}
   <title>{{ fullTitle }}</title>

@@ -153,13 +153,13 @@ module.exports = function (eleventyConfig) {
     if (url === "/") return "1.0";
     if (["/features/", "/pricing/", "/demo/"].includes(url)) return "0.9";
     if (["/contact/", "/docs/", "/about/"].includes(url)) return "0.8";
-    if ((url || "").startsWith("/alternatives/")) return "0.8";
+    if ((url || "").startsWith("/alternatives/") || url === "/tina-vs-excel/") return "0.8";
     if ((url || "").startsWith("/blog/") || (url || "").startsWith("/news/")) return "0.7";
     return "0.6";
   });
 
   eleventyConfig.addFilter("sitemapChangefreq", (url) => {
-    if (url === "/" || (url || "").startsWith("/alternatives/")) return "weekly";
+    if (url === "/" || (url || "").startsWith("/alternatives/") || url === "/tina-vs-excel/") return "weekly";
     if ((url || "").startsWith("/blog/") || (url || "").startsWith("/news/")) return "weekly";
     return "monthly";
   });

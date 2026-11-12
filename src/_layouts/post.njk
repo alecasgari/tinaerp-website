@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 ---
-{% set isComparison = page.url | startsWith("/alternatives/") %}
+{% set isComparison = (page.url | startsWith("/alternatives/")) or comparison %}
 {% if isComparison %}
 {% set crumbs = [{ label: title }] %}
 {% else %}
